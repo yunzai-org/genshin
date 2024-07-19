@@ -1,2 +1,2 @@
-import { MysInfo  } from 'yunzai/mys'
+import { MysInfo } from 'yunzai'
 export default MysInfo

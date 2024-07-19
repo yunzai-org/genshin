@@ -1,2 +1,2 @@
-import { MysApi  } from 'yunzai/mys'
+import { MysApi } from 'yunzai'
 export default MysApi

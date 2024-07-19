@@ -1,7 +1,7 @@
-import { plugin } from 'yunzai/core'
-import * as common from 'yunzai/core'
+import { plugin } from 'yunzai'
+import * as common from 'yunzai'
 import fetch from 'node-fetch'
-import { MysInfo } from 'yunzai/mys'
+import { MysInfo } from 'yunzai'
 export class exchange extends plugin {
   constructor() {
     /**

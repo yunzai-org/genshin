@@ -1,11 +1,11 @@
 import base from './base.js'
 import lodash from 'lodash'
 import fs from 'node:fs'
-import * as common from 'yunzai/core'
-import { gsCfg, MysUser, NoteUser } from 'yunzai/mys'
+import * as common from 'yunzai'
+import { gsCfg, MysUser, NoteUser } from 'yunzai'
 import { promisify } from 'node:util'
 import YAML from 'yaml'
-import { UserGameDB, sequelize } from 'yunzai/db'
+import { UserGameDB, sequelize } from 'yunzai'
 
 
 import { Common, Version, Data } from './miao.js'

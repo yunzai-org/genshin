@@ -1,2 +1,2 @@
-import { ApiTool  } from 'yunzai/mys'
+import { ApiTool } from 'yunzai'
 export default ApiTool

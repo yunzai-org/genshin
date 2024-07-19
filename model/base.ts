@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { ConfigController as cfg } from 'yunzai/config'
+import { ConfigController as cfg } from 'yunzai'
 
 import { Common, Version, Data } from './miao.js'
 import { Character, Weapon, Player } from './miao.js'

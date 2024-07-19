@@ -1,4 +1,4 @@
-import { puppeteer } from 'yunzai/utils'
+import { puppeteer } from 'yunzai'
 import fetch from 'node-fetch'
 import moment from 'moment'
 import fs from 'fs'

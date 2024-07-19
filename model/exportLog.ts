@@ -1,10 +1,10 @@
 import base from './base.js'
-import { ConfigController as cfg } from 'yunzai/config'
+import { ConfigController as cfg } from 'yunzai'
 import fs from 'node:fs'
 import moment from 'moment'
 import GachaLog from './gachaLog.js'
 import lodash from 'lodash'
-import { downFile } from 'yunzai/utils'
+import { downFile } from 'yunzai'
 
 export default class ExportLog extends base {
   constructor(e) {
@@ -110,7 +110,7 @@ export default class ExportLog extends base {
     else this.e.reply('导出失败：暂不支持发送文件')
 
     /** 删除文件 */
-    fs.unlink(saveFile, () => {})
+    fs.unlink(saveFile, () => { })
   }
 
   async getUid() {
@@ -230,7 +230,7 @@ export default class ExportLog extends base {
     }
 
     /** 删除文件 */
-    fs.unlink(textPath, () => {})
+    fs.unlink(textPath, () => { })
 
     await this.e.reply(
       `${this.e.file.name}，${this.e.isSr ? '星铁' : '原神'}记录导入成功\n${msg.join('\n')}`

@@ -1,6 +1,6 @@
-import { plugin } from 'yunzai/core'
+import { plugin } from 'yunzai'
 import Note from '../model/note.js'
-import { gsCfg } from 'yunzai/mys'
+import { gsCfg } from 'yunzai'
 gsCfg.cpCfg('mys', 'set')
 export class dailyNote extends plugin {
   set = null

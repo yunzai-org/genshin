@@ -1,4 +1,4 @@
-import { plugin } from 'yunzai/core'
+import { plugin } from 'yunzai'
 import fs from 'node:fs'
 import GachaLog from '../model/gachaLog.js'
 import ExportLog from '../model/exportLog.js'

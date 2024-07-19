@@ -1,8 +1,8 @@
-import { Plugin } from 'yunzai/core'
-import { gsCfg } from 'yunzai/mys'
+import { Plugin } from 'yunzai'
+import { gsCfg } from 'yunzai'
 import fs from 'node:fs'
 import fetch from 'node-fetch'
-import { downFile } from 'yunzai/utils'
+import { downFile } from 'yunzai'
 export class material extends Plugin {
   constructor() {
     /**

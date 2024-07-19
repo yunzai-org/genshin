@@ -1,4 +1,4 @@
-import { plugin } from 'yunzai/core'
+import { plugin } from 'yunzai'
 import Ledger from '../model/ledger.js'
 import fs from 'node:fs'
 export class ledger extends plugin {

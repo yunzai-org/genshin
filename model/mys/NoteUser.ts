@@ -1,2 +1,2 @@
-import { NoteUser  } from 'yunzai/mys'
+import { NoteUser } from 'yunzai'
 export default NoteUser

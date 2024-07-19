@@ -1,6 +1,6 @@
 import base from './base.js'
-import { MysInfo } from 'yunzai/mys'
-import { gsCfg } from 'yunzai/mys'
+import { MysInfo } from 'yunzai'
+import { gsCfg } from 'yunzai'
 import lodash from 'lodash'
 
 import { Common, Version, Data } from './miao.js'

@@ -1,2 +1,2 @@
-import { GSCfg  } from 'yunzai/mys'
+import { GSCfg } from 'yunzai'
 export default GSCfg

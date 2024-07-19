@@ -1,9 +1,9 @@
 import base from './base.js'
-import { MysInfo, gsCfg } from 'yunzai/mys'
+import { MysInfo, gsCfg } from 'yunzai'
 import lodash from 'lodash'
 import fs from 'node:fs'
 import fetch from 'node-fetch'
-import { downFile } from 'yunzai/utils'
+import { downFile } from 'yunzai'
 
 export default class RoleDetail extends base {
   constructor(e) {

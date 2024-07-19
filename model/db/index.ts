@@ -1,1 +1,1 @@
-export * from 'yunzai/db'
+export * from 'yunzai'

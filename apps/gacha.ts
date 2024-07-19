@@ -1,4 +1,4 @@
-import { plugin } from 'yunzai/core'
+import { plugin } from 'yunzai'
 import GachaData from '../model/gachaData.js'
 import fs from 'node:fs'
 import lodash from 'lodash'

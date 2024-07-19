@@ -1,9 +1,9 @@
-import { plugin } from 'yunzai/core'
-import { gsCfg } from 'yunzai/mys'
+import { plugin } from 'yunzai'
+import { gsCfg } from 'yunzai'
 import lodash from 'lodash'
 import fs from 'node:fs'
 import fetch from 'node-fetch'
-import { downFile } from 'yunzai/utils'
+import { downFile } from 'yunzai'
 gsCfg.cpCfg('mys', 'set')
 /**
  * Modify By: ifeng0188
@@ -71,7 +71,7 @@ export class strategy extends plugin {
     })
     this.set = gsCfg.getConfig('mys', 'set')
   }
-  
+
   set = null
 
   /** 初始化创建配置文件 */

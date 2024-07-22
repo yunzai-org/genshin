@@ -1,0 +1,68 @@
+import base from './base.js';
+export default class Ledger extends base {
+    constructor(e: any);
+    get(): Promise<any>;
+    getMonth(): boolean;
+    dealData(ledgerInfo: any): any;
+    saveLedger(uid: any, ck?: string, isTask?: boolean): Promise<{}>;
+    ysLedger(ck: any, month: any, isTask: any): Promise<any>;
+    ledgerTask(manual: any): Promise<void>;
+    countTime(num: any): string;
+    ledgerCount(): Promise<false | {
+        tplFile: string;
+        pluResPath: string;
+        srtempFile: string;
+        headImg: any;
+        game: string;
+        saveId: any;
+        cwd: string;
+        yzVersion: string;
+        yzName: any;
+        genshinLayout: string;
+        defaultLayout: string;
+        allPrimogems: number;
+        allMora: number;
+        primogemsMonth: any[];
+        moraMonth: any[];
+        yearText: any;
+        uid: any;
+    }>;
+    ledgerCountHistory(): Promise<false | {
+        tplFile: string;
+        pluResPath: string;
+        srtempFile: string;
+        headImg: any;
+        game: string;
+        saveId: any;
+        cwd: string;
+        yzVersion: string;
+        yzName: any;
+        genshinLayout: string;
+        defaultLayout: string;
+        allPrimogems: number;
+        allMora: number;
+        primogemsMonth: any[];
+        moraMonth: any[];
+        yearText: any;
+        uid: any;
+    }>;
+    ledgerCountData(NoteData: any, nowYear: any): {
+        tplFile: string;
+        pluResPath: string;
+        srtempFile: string;
+        headImg: any;
+        game: string;
+        saveId: any;
+        cwd: string;
+        yzVersion: string;
+        yzName: any;
+        genshinLayout: string;
+        defaultLayout: string;
+        allPrimogems: number;
+        allMora: number;
+        primogemsMonth: any[];
+        moraMonth: any[];
+        yearText: any;
+        uid: any;
+    };
+}

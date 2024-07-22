@@ -25,13 +25,10 @@
       "rollup": "^4.16.4",
       "tailwindcss": "^3.4.3",
       "ts-node": "^10.9.1",
-      "typescript": "^5.5.3",
-      "yunzai": "^1.0.1-rc.0",
-      "yunzai-mys": "^1.0.0-rc.0"
+      "typescript": "^5.5.3"
     },
     "files": [
-      "public",
-      "assets",
+      "resources",
       "lib"
     ],
     "types": "lib/types",

@@ -4,6 +4,8 @@
 
 请先安装喵喵插件后再安装
 
+> 暂不可用
+
 ```sh
 # 喵喵插件
 git clone --depth=1 https://gitee.com/yoimiya-kokomi/miao-plugin.git ./plugins/miao-plugin/

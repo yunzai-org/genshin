@@ -29,8 +29,8 @@ export default class RoleIndex extends base {
       枫丹: 9,
       沉玉谷: 10,
       来歆山: 11,
-      沉玉谷·南陵: 12,
-      沉玉谷·上谷: 13,
+      "沉玉谷·南陵": 12,
+      "沉玉谷·上谷": 13,
       旧日之海: 14
     }
 
@@ -43,6 +43,8 @@ export default class RoleIndex extends base {
 
     this.headIndexStyle = `<style> .head_box { background: url(${this.screenData.pluResPath}img/roleIndex/namecard/${lodash.random(1, 8)}.png) #f5f5f5; background-position-x: 30px; background-repeat: no-repeat; border-radius: 15px; font-family: tttgbnumber; padding: 10px 20px; position: relative; background-size: auto 101%; }</style>`
   }
+
+  e
 
   static async get(e) {
     let roleIndex = new RoleIndex(e)
@@ -746,6 +748,8 @@ export default class RoleIndex extends base {
       gamefwq: resIndex?.role?.region
     }
   }
+
+  headIndexStyle = undefined
 
   initFile() {
     if (imgFile['刻晴']) return imgFile

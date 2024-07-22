@@ -1,19 +1,20 @@
 import base from './base.js'
 import { MysInfo } from 'yunzai-mys'
 import { gsCfg } from 'yunzai-mys'
-import lodash from 'lodash'
+import { chain } from 'lodash-es'
 import { Character, Weapon } from './miao.js'
 
 export default class WeaponModel extends base {
   constructor(e) {
     super(e)
   }
+  e
 
   model = 'weapon'
 
   static async get(e) {
     let weapon = new WeaponModel(e)
-    return await weapon.getData()
+    return await weapon.getData(e)
   }
 
   /** #武器 */
@@ -111,11 +112,11 @@ export default class WeaponModel extends base {
     }
 
     // 重新排序
-    ret = lodash
-      .chain(ret)
-      .orderBy(['firstSort'], ['desc'])
-      .orderBy(['sort'], ['desc'])
-      .value()
+    ret =
+      chain(ret)
+        .orderBy(['firstSort'], ['desc'])
+        .orderBy(['sort'], ['desc'])
+        .value()
 
     return { list: ret, count }
   }

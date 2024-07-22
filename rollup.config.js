@@ -1,5 +1,5 @@
 import typescript from '@rollup/plugin-typescript'
-import terser from '@rollup/plugin-terser'
+// import terser from '@rollup/plugin-terser'
 /**
  * @type {import("rollup").RollupOptions[]}
  */
@@ -24,7 +24,7 @@ export default [
                 include: ['src/**/*']
             }),
             // 开启代码压缩
-            terser()
+            // terser()
         ],
         onwarn: (warning, warn) => {
             // 忽略与无法解析the导入相关the警告信息

@@ -2,10 +2,10 @@ import base from './base.js'
 import lodash from 'lodash'
 import fs from 'node:fs'
 import * as common from 'yunzai'
-import { gsCfg, MysUser, NoteUser } from 'yunzai'
+import { gsCfg, MysUser, NoteUser } from 'yunzai-mys'
 import { promisify } from 'node:util'
 import YAML from 'yaml'
-import { UserGameDB, sequelize } from 'yunzai'
+import { UserGameDB, sequelize } from 'yunzai-mys'
 import { Data, Player } from './miao.js'
 
 export default class User extends base {

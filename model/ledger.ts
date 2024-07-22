@@ -1,10 +1,10 @@
 import base from './base.js'
-import { MysInfo, MysApi } from 'yunzai'
+import { MysInfo, MysApi } from 'yunzai-mys'
 import lodash from 'lodash'
 import moment from 'moment'
 import fs from 'node:fs'
 import { sleep } from 'yunzai'
-import { GSCfg as GsCfg } from 'yunzai'
+import { GSCfg as GsCfg } from 'yunzai-mys'
 export default class Ledger extends base {
   constructor(e) {
     super(e)

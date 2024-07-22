@@ -1,2 +1,2 @@
-import { DailyCache } from 'yunzai'
+import { DailyCache } from 'yunzai-mys'
 export default DailyCache

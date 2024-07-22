@@ -7,7 +7,7 @@ import * as common from 'yunzai'
 
 import { sleep } from 'yunzai'
 
-import { gsCfg } from 'yunzai'
+import { gsCfg } from 'yunzai-mys'
 import YAML from 'yaml'
 import fs from 'fs'
 

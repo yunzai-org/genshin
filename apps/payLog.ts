@@ -1,6 +1,6 @@
 import { plugin } from 'yunzai'
 import { PayData, renderImg } from '../model/payLogData.js'
-import { NoteUser } from 'yunzai'
+import { NoteUser } from 'yunzai-mys'
 import fs from 'fs'
 import path from 'path'
 import yaml from 'yaml'

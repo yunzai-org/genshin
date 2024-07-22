@@ -1,7 +1,7 @@
 import { Plugin } from 'yunzai'
 import * as common from 'yunzai'
 import fs from 'node:fs'
-import { gsCfg } from 'yunzai'
+import { GSCfg as gsCfg } from 'yunzai-mys'
 import YAML from 'yaml'
 import lodash from 'lodash'
 export class abbrSet extends Plugin {

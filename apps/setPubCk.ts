@@ -1,9 +1,9 @@
-import { GSCfg as GsCfg, Plugin } from 'yunzai'
+import { Plugin } from 'yunzai'
 import fs from 'node:fs'
 import lodash from 'lodash'
 import fetch from 'node-fetch'
 import YAML from 'yaml'
-import { MysInfo } from 'yunzai'
+import { GSCfg as GsCfg, MysInfo } from 'yunzai-mys'
 import { sleep } from 'yunzai'
 export class setPubCk extends Plugin {
   constructor() {

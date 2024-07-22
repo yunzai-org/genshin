@@ -1,7 +1,7 @@
 import base from './base.js'
-import { MysInfo, MysApi } from 'yunzai'
+import { MysInfo, MysApi } from 'yunzai-mys'
 import lodash from 'lodash'
-import { gsCfg } from 'yunzai'
+import { gsCfg } from 'yunzai-mys'
 
 export default class Calculator extends base {
   constructor(e) {

@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 import lodash from 'lodash'
 import fs from 'node:fs'
 import { downFile, sleep } from 'yunzai'
-import { gsCfg } from 'yunzai'
+import { gsCfg } from 'yunzai-mys'
 
 import { Common, Version, Data } from './miao.js'
 import { Character, Weapon, Player } from './miao.js'

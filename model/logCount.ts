@@ -1,7 +1,7 @@
 import base from './base.js'
 import lodash from 'lodash'
 import fs from 'node:fs'
-import { gsCfg } from 'yunzai'
+import { gsCfg } from 'yunzai-mys'
 import moment from 'moment'
 import GachaLog from './gachaLog.js'
 

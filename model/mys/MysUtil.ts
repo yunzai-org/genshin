@@ -1,2 +1,2 @@
-import { MysUtil } from 'yunzai'
+import { MysUtil } from 'yunzai-mys'
 export default MysUtil

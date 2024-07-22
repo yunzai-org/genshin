@@ -6,11 +6,7 @@ import { gsCfg, MysUser, NoteUser } from 'yunzai'
 import { promisify } from 'node:util'
 import YAML from 'yaml'
 import { UserGameDB, sequelize } from 'yunzai'
-
-
-import { Common, Version, Data } from './miao.js'
-import { Character, Weapon, Player } from './miao.js'
-
+import { Data, Player } from './miao.js'
 
 export default class User extends base {
   constructor(e) {

@@ -1,13 +1,10 @@
 import base from './base.js'
-import { gsCfg } from 'yunzai'
+import { gsCfg } from 'yunzai-mys'
 import lodash from 'lodash'
 import moment from 'moment'
 import fs from 'node:fs'
 
-
-
-import { Common, Version, Data } from './miao.js'
-import { Character, Weapon, Player } from './miao.js'
+import { Character } from './miao.js'
 
 let dsz = '待实装'
 let imgFile = {}

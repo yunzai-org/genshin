@@ -2,7 +2,7 @@ import moment from 'moment'
 import lodash from 'lodash'
 import base from './base.js'
 
-import { MysInfo } from 'yunzai'
+import { MysInfo } from 'yunzai-mys'
 
 // tudo
 

@@ -1,5 +1,5 @@
 import { Plugin } from 'yunzai'
-import { gsCfg } from 'yunzai'
+import { gsCfg } from 'yunzai-mys'
 import fs from 'node:fs'
 import fetch from 'node-fetch'
 import { downFile } from 'yunzai'

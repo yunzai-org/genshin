@@ -1,2 +1,2 @@
-import { BaseModel } from 'yunzai'
+import { BaseModel } from 'yunzai-mys'
 export default BaseModel

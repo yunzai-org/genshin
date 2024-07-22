@@ -2,7 +2,7 @@ import { plugin } from 'yunzai'
 import MysNews from '../model/mysNews.js'
 import fs from 'node:fs'
 import lodash from 'lodash'
-import { gsCfg } from 'yunzai'
+import { gsCfg } from 'yunzai-mys'
 import YAML from 'yaml'
 gsCfg.cpCfg('mys', 'pushNews')
 export class mysNews extends plugin {

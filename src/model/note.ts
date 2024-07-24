@@ -1,13 +1,8 @@
 import moment from 'moment'
 import lodash from 'lodash'
 import base from './base.js'
-
 import { MysInfo } from 'yunzai-mys'
-
-// tudo
-
-import { Common, Version, Data } from './miao.js'
-import { Character, Weapon, Player } from './miao.js'
+import { Character } from './miao.js'
 
 export default class Note extends base {
   constructor(e) {

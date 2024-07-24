@@ -11,7 +11,7 @@ export default class RoleBag extends base {
 
   static async get(e) {
     let roleBag = new RoleBag(e)
-    return await roleBag.getData()
+    return await roleBag.getData(e)
   }
 
   /** #武器 */

@@ -5,8 +5,7 @@ import fs from 'node:fs'
 import { downFile, sleep } from 'yunzai'
 import { gsCfg } from 'yunzai-mys'
 
-import { Common, Version, Data } from './miao.js'
-import { Character, Weapon, Player } from './miao.js'
+import { Character, Weapon } from './miao.js'
 
 export default class GachaLog extends base {
   constructor(e) {

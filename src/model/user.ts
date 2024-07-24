@@ -311,11 +311,9 @@ export default class User extends base {
         }
       })
     })
-    const img = segment.image(await this.e.runtime.render(
-      'genshin',
-      'html/user/uid-list',
-      { uids }
-    ))
+    const img = segment.image(
+      await this.e.runtime.render('genshin', 'html/user/uid-list', { uids })
+    )
     return this.e.reply([
       img,
       segment.button(

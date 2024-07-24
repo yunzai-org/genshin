@@ -18,20 +18,20 @@ export default class RoleIndex extends base {
     this.lable = gsCfg.getdefSet('role', 'index')
 
     this.area = {
-      蒙德: 1,
-      璃月: 2,
-      雪山: 3,
-      稻妻: 4,
-      渊下宫: 5,
-      层岩巨渊: 6,
-      层岩地下: 7,
-      须弥: 8,
-      枫丹: 9,
-      沉玉谷: 10,
-      来歆山: 11,
-      "沉玉谷·南陵": 12,
-      "沉玉谷·上谷": 13,
-      旧日之海: 14
+      '蒙德': 1,
+      '璃月': 2,
+      '雪山': 3,
+      '稻妻': 4,
+      '渊下宫': 5,
+      '层岩巨渊': 6,
+      '层岩地下': 7,
+      '须弥': 8,
+      '枫丹': 9,
+      '沉玉谷': 10,
+      '来歆山': 11,
+      '沉玉谷·南陵': 12,
+      '沉玉谷·上谷': 13,
+      '旧日之海': 14
     }
 
     this.all_chest = 0
@@ -135,7 +135,7 @@ export default class RoleIndex extends base {
         stats.common_chest_number +
         stats.magic_chest_number) /
         this.all_chest) *
-      100,
+        100,
       1
     )
 
@@ -511,7 +511,7 @@ export default class RoleIndex extends base {
         stats.common_chest_number +
         stats.magic_chest_number) *
         100) /
-      this.all_chest,
+        this.all_chest,
       2
     )
 
@@ -519,12 +519,12 @@ export default class RoleIndex extends base {
       percentage < 60
         ? 'D'
         : (percentage < 70
-          ? 'C'
-          : percentage < 80
-            ? 'B'
-            : percentage < 90
-              ? 'A'
-              : 'S') + `[${percentage}%]`
+            ? 'C'
+            : percentage < 80
+              ? 'B'
+              : percentage < 90
+                ? 'A'
+                : 'S') + `[${percentage}%]`
 
     let daysDifference =
       Math.floor(

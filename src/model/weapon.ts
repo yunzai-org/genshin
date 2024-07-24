@@ -112,11 +112,10 @@ export default class WeaponModel extends base {
     }
 
     // 重新排序
-    ret =
-      chain(ret)
-        .orderBy(['firstSort'], ['desc'])
-        .orderBy(['sort'], ['desc'])
-        .value()
+    ret = chain(ret)
+      .orderBy(['firstSort'], ['desc'])
+      .orderBy(['sort'], ['desc'])
+      .value()
 
     return { list: ret, count }
   }

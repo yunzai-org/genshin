@@ -1,50 +1,50 @@
 {
-    "name": "yz-genshin",
-    "version": "1.0.0-rc.0",
-    "description": "YunzaiJS插件",
-    "author": "ningmengchongshui",
-    "type": "module",
-    "private": true,
-    "scripts": {
-      "app": "node --no-warnings=ExperimentalWarning --loader ts-node/esm src/main.js",
-      "dev": "nodemon",
-      "img": "node --no-warnings=ExperimentalWarning --loader ts-node/esm src/server.ts",
-      "build": "rollup  --config rollup.config.js",
-      "format": "prettier --write ."
-    },
-    "dependencies": {
-      "react-puppeteer": "^1.0.0-rc.7"
-    },
-    "devDependencies": {
-      "@rollup/plugin-terser": "^0.4.4",
-      "@rollup/plugin-typescript": "^11.1.3",
-      "@types/lodash": "^4.17.7",
-      "@types/react": "^18.3.3",
-      "nodemon": "^3.0.1",
-      "prettier": "^3.2.5",
-      "rollup": "^4.16.4",
-      "tailwindcss": "^3.4.3",
-      "ts-node": "^10.9.1",
-      "typescript": "^5.5.3"
-    },
-    "files": [
-      "resources",
-      "lib"
-    ],
-    "types": "lib/types",
-    "exports": {
-      ".": {
-        "import": "./lib/index.js",
-        "types": "./lib/types/index.d.ts"
-      }
-    },
-    "keywords": [
-      "yunzai"
-    ],
-    "publishConfig": {
-      "registry": "https://registry.npmjs.org"
-    },
-    "engines": {
-      "node": ">=16.14.0"
+  "name": "yz-genshin",
+  "version": "1.0.0-rc.0",
+  "description": "YunzaiJS插件",
+  "author": "ningmengchongshui",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "app": "node --no-warnings=ExperimentalWarning --loader ts-node/esm src/main.js",
+    "dev": "nodemon",
+    "img": "node --no-warnings=ExperimentalWarning --loader ts-node/esm src/server.ts",
+    "build": "rollup  --config rollup.config.js",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "react-puppeteer": "^1.0.0-rc.7"
+  },
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.3",
+    "@types/lodash": "^4.17.7",
+    "@types/react": "^18.3.3",
+    "nodemon": "^3.0.1",
+    "prettier": "^3.2.5",
+    "rollup": "^4.16.4",
+    "tailwindcss": "^3.4.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.5.3"
+  },
+  "files": [
+    "resources",
+    "lib"
+  ],
+  "types": "lib/types",
+  "exports": {
+    ".": {
+      "import": "./lib/index.js",
+      "types": "./lib/types/index.d.ts"
     }
+  },
+  "keywords": [
+    "yunzai"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "engines": {
+    "node": ">=16.14.0"
   }
+}

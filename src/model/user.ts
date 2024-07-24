@@ -540,7 +540,7 @@ export default class User extends base {
         try {
           let src = `./data/MysCookie/${qq}.yaml`
           let dest = `./temp/MysCookieBak/${qq}.yaml`
-          await fs.promises.unlink(dest).catch(_ => { })
+          await fs.promises.unlink(dest).catch(_ => {})
           await fs.promises.copyFile(src, dest)
           await fs.promises.unlink(src)
         } catch (err) {

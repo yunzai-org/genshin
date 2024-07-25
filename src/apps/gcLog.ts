@@ -1,17 +1,13 @@
-import { plugin } from 'yunzai'
+import { Plugin } from 'yunzai'
 import fs from 'node:fs'
 import GachaLog from '../model/gachaLog.js'
 import ExportLog from '../model/exportLog.js'
 import LogCount from '../model/logCount.js'
 const _path = process.cwd() + '/plugins/genshin'
-export class gcLog extends plugin {
+export class gcLog extends Plugin {
   constructor() {
-    /**
-     * 
-      name: "抽卡记录",
-      dsc: "抽卡记录数据统计",
-     */
     super({
+      name: "抽卡记录",
       priority: 300,
       rule: [
         {

@@ -1,18 +1,14 @@
-import { plugin } from 'yunzai'
+import { Plugin } from 'yunzai'
 import MysNews from '../model/mysNews.js'
 import fs from 'node:fs'
 import lodash from 'lodash'
 import { gsCfg } from 'yunzai-mys'
 import YAML from 'yaml'
 gsCfg.cpCfg('mys', 'pushNews')
-export class mysNews extends plugin {
+export class mysNews extends Plugin {
   constructor(e) {
-    /**
-     * 
-      name: '米游社公告',
-      dsc: '#公告 #资讯 #活动',
-     */
     super({
+      name: '米游社公告',
       priority: 7000,
       rule: [
         {

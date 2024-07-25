@@ -1,5 +1,5 @@
-import { plugin } from 'yunzai';
-export declare class mysNews extends plugin {
+import { Plugin } from 'yunzai';
+export declare class mysNews extends Plugin {
     constructor(e: any);
     file: string;
     init(): Promise<void>;

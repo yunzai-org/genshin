@@ -1,5 +1,5 @@
-import { plugin } from 'yunzai';
-export declare class sevenSaints extends plugin {
+import { Plugin } from 'yunzai';
+export declare class sevenSaints extends Plugin {
     constructor();
     deckIndex(): Promise<void>;
     deck(id: any): Promise<void>;

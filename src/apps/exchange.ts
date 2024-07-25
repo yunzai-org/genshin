@@ -1,15 +1,11 @@
-import { plugin } from 'yunzai'
+import { Plugin } from 'yunzai'
 import * as common from 'yunzai'
 import fetch from 'node-fetch'
 import { MysInfo } from 'yunzai-mys'
-export class exchange extends plugin {
+export class exchange extends Plugin {
   constructor() {
-    /**
-     * 
-      name: '兑换码',
-      dsc: '前瞻直播兑换码',
-     */
     super({
+      name: '兑换码',
       priority: 1000,
       rule: [
         {

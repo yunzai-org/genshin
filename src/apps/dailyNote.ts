@@ -1,16 +1,13 @@
-import { plugin } from 'yunzai'
+import { Plugin } from 'yunzai'
 import Note from '../model/note.js'
 
 import { GSCfg as gsCfg } from 'yunzai-mys'
 gsCfg.cpCfg('mys', 'set')
-export class dailyNote extends plugin {
+export class dailyNote extends Plugin {
   set = null
   constructor() {
-    /**
-      name: '体力查询',
-      dsc: '体力查询',
-     */
     super({
+      name: '体力查询',
       priority: 300,
       rule: [
         {

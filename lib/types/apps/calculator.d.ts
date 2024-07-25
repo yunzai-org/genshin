@@ -1,5 +1,5 @@
-import { plugin } from 'yunzai';
-export declare class calculator extends plugin {
+import { Plugin } from 'yunzai';
+export declare class calculator extends Plugin {
     constructor();
     _path: string;
     blueprintHelp(e: any): Promise<boolean>;

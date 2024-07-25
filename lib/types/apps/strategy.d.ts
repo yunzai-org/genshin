@@ -1,5 +1,5 @@
-import { plugin } from 'yunzai';
-export declare class strategy extends plugin {
+import { Plugin } from 'yunzai';
+export declare class strategy extends Plugin {
     path: string;
     url: string;
     collection_id: number[][];

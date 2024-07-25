@@ -1,5 +1,5 @@
-import { plugin } from 'yunzai';
-export declare class userAdmin extends plugin {
+import { Plugin } from 'yunzai';
+export declare class userAdmin extends Plugin {
     User: any;
     button: any;
     constructor(e: any);

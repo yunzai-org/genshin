@@ -1,15 +1,11 @@
-import { plugin } from 'yunzai'
+import { Plugin } from 'yunzai'
 import { gsCfg } from 'yunzai-mys'
 import User from '../model/user.js'
-export class user extends plugin {
+export class user extends Plugin {
   User = null
   constructor(e) {
-    /**
-     * 
-      name: '用户绑定',
-      dsc: '米游社ck绑定，游戏uid绑定',
-     */
     super({
+      name: '用户绑定',
       priority: 300,
       rule: [
         {

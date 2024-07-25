@@ -1,5 +1,5 @@
-import { plugin } from 'yunzai';
-export declare class user extends plugin {
+import { Plugin } from 'yunzai';
+export declare class user extends Plugin {
     User: any;
     constructor(e: any);
     init(): Promise<void>;

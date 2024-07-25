@@ -1,18 +1,15 @@
-import { plugin } from 'yunzai'
+import { Plugin } from 'yunzai'
 import { PayData, renderImg } from '../model/payLogData.js'
 import { NoteUser } from 'yunzai-mys'
 import fs from 'fs'
 import path from 'path'
 import yaml from 'yaml'
-export class payLog extends plugin {
+export class payLog extends Plugin {
   dirPath = path.resolve('./data/payLog/')
   authKey = ''
   constructor() {
-    /**
-      name: '充值记录',
-      dsc: '充值记录,消费记录,充值统计,消费统计',
-     */
     super({
+      name: '充值记录',
       priority: 299,
       rule: [
         {

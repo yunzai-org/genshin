@@ -1,14 +1,10 @@
-import { plugin } from 'yunzai'
+import { Plugin } from 'yunzai'
 import { puppeteer } from 'yunzai'
 import Deck from '../model/deck.js'
-export class sevenSaints extends plugin {
+export class sevenSaints extends Plugin {
   constructor() {
-    /**
-     * 
-      name: '七圣召唤卡组查询',
-      dsc: '原神角色信息查询',
-     */
     super({
+      name: '七圣召唤卡组查询',
       priority: 0,
       rule: [
         {

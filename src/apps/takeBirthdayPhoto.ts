@@ -1,14 +1,10 @@
-import { plugin } from 'yunzai'
+import { Plugin } from 'yunzai'
 import { MysInfo } from 'yunzai-mys'
 import fetch from 'node-fetch'
-export class takeBirthdayPhoto extends plugin {
+export class takeBirthdayPhoto extends Plugin {
   constructor() {
-    /**
-     * 
-      name: '留影叙佳期',
-      dsc: '留影叙佳期',
-     */
     super({
+      name: '留影叙佳期',
       priority: 5000,
       rule: [
         {

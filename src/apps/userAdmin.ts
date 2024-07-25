@@ -1,15 +1,12 @@
-import { plugin } from 'yunzai'
+import { Plugin } from 'yunzai'
 import User from '../model/user.js'
 import { MysInfo } from 'yunzai-mys'
-export class userAdmin extends plugin {
+export class userAdmin extends Plugin {
   User = null
   button = null
   constructor(e) {
-    /**
-      name: '用户管理',
-      dsc: 'CK用户管理',
-     */
     super({
+      name: '用户管理',
       event: 'message',
       priority: 300,
       rule: [

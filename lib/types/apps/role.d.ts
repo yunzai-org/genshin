@@ -1,5 +1,5 @@
-import { plugin } from 'yunzai';
-export declare class role extends plugin {
+import { Plugin } from 'yunzai';
+export declare class role extends Plugin {
     constructor();
     init(): Promise<void>;
     accept(): boolean;

@@ -1,5 +1,5 @@
-import { plugin } from 'yunzai';
-export declare class takeBirthdayPhoto extends plugin {
+import { Plugin } from 'yunzai';
+export declare class takeBirthdayPhoto extends Plugin {
     constructor();
     button: any;
     birthdaystar(e: any): Promise<boolean>;

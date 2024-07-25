@@ -1,5 +1,5 @@
-import { plugin } from 'yunzai';
-export declare class gcLog extends plugin {
+import { Plugin } from 'yunzai';
+export declare class gcLog extends Plugin {
     constructor();
     init(): Promise<void>;
     accept(): boolean;

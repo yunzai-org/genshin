@@ -1,5 +1,5 @@
-import { plugin } from 'yunzai';
-export declare class payLog extends plugin {
+import { Plugin } from 'yunzai';
+export declare class payLog extends Plugin {
     dirPath: string;
     authKey: string;
     constructor();

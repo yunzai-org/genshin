@@ -1,15 +1,11 @@
-import { plugin } from 'yunzai'
+import { Plugin } from 'yunzai'
 import GachaData from '../model/gachaData.js'
 import fs from 'node:fs'
 import lodash from 'lodash'
-export class gacha extends plugin {
+export class gacha extends Plugin {
   constructor() {
-    /**
-     * 
-      name: '十连',
-      dsc: '模拟抽卡，每天十连一次，四点更新',
-     */
     super({
+      name: '十连',
       priority: 100,
       rule: [
         {

@@ -1,14 +1,10 @@
-import { plugin } from 'yunzai'
+import { Plugin } from 'yunzai'
 import Ledger from '../model/ledger.js'
 import fs from 'node:fs'
-export class ledger extends plugin {
+export class ledger extends Plugin {
   constructor() {
-    /**
-     * 
-      name: '札记查询',
-      dsc: '米游社札记·开拓月历查询',
-     */
     super({
+      name: '札记查询',
       priority: 300,
       rule: [
         {

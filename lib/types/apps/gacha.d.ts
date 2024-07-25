@@ -1,5 +1,5 @@
-import { plugin } from 'yunzai';
-export declare class gacha extends plugin {
+import { Plugin } from 'yunzai';
+export declare class gacha extends Plugin {
     constructor();
     gacha(): Promise<void>;
     checkLimit(): boolean;

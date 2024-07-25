@@ -1,17 +1,13 @@
-import { plugin } from 'yunzai'
+import { Plugin } from 'yunzai'
 import fs from 'node:fs'
 import { gsCfg } from 'yunzai-mys'
 import RoleIndex from '../model/roleIndex.js'
 import Abyss from '../model/abyss.js'
 import Weapon from '../model/weapon.js'
-export class role extends plugin {
+export class role extends Plugin {
   constructor() {
-    /**
-     * 
-      name: '角色查询',
-      dsc: '原神角色信息查询',
-     */
     super({
+      name: '角色查询',
       priority: 200,
       rule: [
         {

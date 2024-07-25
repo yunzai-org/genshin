@@ -1,5 +1,5 @@
-import { plugin } from 'yunzai';
-export declare class ledger extends plugin {
+import { Plugin } from 'yunzai';
+export declare class ledger extends Plugin {
     constructor();
     init(): Promise<void>;
     ledger(): Promise<void>;

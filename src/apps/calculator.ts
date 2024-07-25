@@ -1,17 +1,13 @@
-import { plugin } from 'yunzai'
+import { Plugin } from 'yunzai'
 import Calculator from '../model/calculator.js'
 import Blueprint from '../model/blueprint.js'
 import { puppeteer } from 'yunzai'
 
 import { GSCfg as gsCfg } from 'yunzai-mys'
-export class calculator extends plugin {
+export class calculator extends Plugin {
   constructor() {
-    /**
-     * 
-      name: '养成计算',
-      dsc: '角色养成材料计算器',
-     */
     super({
+      name: '养成计算',
       priority: 700,
       rule: [
         {

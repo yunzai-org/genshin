@@ -1,4 +1,4 @@
-import { plugin } from 'yunzai'
+import { Plugin } from 'yunzai'
 import { gsCfg } from 'yunzai-mys'
 import lodash from 'lodash'
 import fs from 'node:fs'
@@ -14,7 +14,7 @@ gsCfg.cpCfg('mys', 'set')
  * 从拓展插件更新
  * 作者：曉K 更新：🌌
  */
-export class strategy extends plugin {
+export class strategy extends Plugin {
   path = './temp/strategy'
   url =
     'https://bbs-api.mihoyo.com/post/wapi/getPostFullInCollection?&gids=2&order_type=2&collection_id='
@@ -47,12 +47,8 @@ export class strategy extends plugin {
   oss =
     '?x-oss-process=image//resize,s_1200/quality,q_90/auto-orient,0/interlace,1/format,jpg'
   constructor() {
-    /**
-     * 
-      name: '米游社攻略',
-      dsc: '米游社攻略图',
-     */
     super({
+      name: '米游社攻略',
       priority: 50,
       rule: [
         {

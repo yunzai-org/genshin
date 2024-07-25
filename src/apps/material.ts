@@ -5,12 +5,8 @@ import fetch from 'node-fetch'
 import { downFile } from 'yunzai'
 export class material extends Plugin {
   constructor() {
-    /**
-     * 
-      name: "角色素材",
-      dsc: "角色养成突破素材",
-     */
     super({
+      name: "角色素材",
       priority: 500,
       rule: [
         {

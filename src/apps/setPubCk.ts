@@ -8,7 +8,7 @@ import { sleep } from 'yunzai'
 export class setPubCk extends Plugin {
   constructor() {
     super({
-      name: "配置",
+      name: '配置',
       priority: 700,
       rule: [
         {

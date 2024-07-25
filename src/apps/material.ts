@@ -6,7 +6,7 @@ import { downFile } from 'yunzai'
 export class material extends Plugin {
   constructor() {
     super({
-      name: "角色素材",
+      name: '角色素材',
       priority: 500,
       rule: [
         {

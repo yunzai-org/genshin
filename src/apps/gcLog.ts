@@ -7,7 +7,7 @@ const _path = process.cwd() + '/plugins/genshin'
 export class gcLog extends Plugin {
   constructor() {
     super({
-      name: "抽卡记录",
+      name: '抽卡记录',
       priority: 300,
       rule: [
         {

@@ -84,8 +84,8 @@ export class gcLog extends Plugin {
   }
 
   /**
-   * 
-   * @returns 
+   *
+   * @returns
    */
   accept() {
     if (this.e.file) {
@@ -103,7 +103,7 @@ export class gcLog extends Plugin {
 
   /**
    * 抽卡记录链接
-   * @returns 
+   * @returns
    */
   async logUrl() {
     let data = await new GachaLog(this.e).logUrl()
@@ -129,7 +129,7 @@ export class gcLog extends Plugin {
 
   /**
    * 导出记录
-   * @returns 
+   * @returns
    */
   exportLog() {
     if (this.e.isGroup && !this.e.msg.includes('强制')) {
@@ -143,8 +143,8 @@ export class gcLog extends Plugin {
   }
 
   /**
-   * 
-   * @returns 
+   *
+   * @returns
    */
   async logJson() {
     if (!this.e.file) return this.e.reply('请发送Json文件')
@@ -153,7 +153,7 @@ export class gcLog extends Plugin {
   }
 
   /**
-   * 
+   *
    */
   help() {
     this.e.reply([
@@ -167,26 +167,30 @@ export class gcLog extends Plugin {
   }
 
   /**
-   * 
+   *
    */
   helpPort() {
     let msg = this.e.msg.replace(/#|帮助/g, '')
     if (['电脑', 'pc'].includes(msg)) {
       this.e.reply(
-        global.segment.image(`file://${_path}/resources/logHelp/记录帮助-电脑.png`)
+        global.segment.image(
+          `file://${_path}/resources/logHelp/记录帮助-电脑.png`
+        )
       )
     } else if (['安卓'].includes(msg)) {
       this.e.reply(`安卓抽卡记录获取教程：${androidUrl}`)
     } else if (['苹果', 'ios'].includes(msg)) {
       this.e.reply(
-        global.segment.image(`file://${_path}/resources/logHelp/记录帮助-苹果.png`)
+        global.segment.image(
+          `file://${_path}/resources/logHelp/记录帮助-苹果.png`
+        )
       )
     }
   }
 
   /**
-   * 
-   * @returns 
+   *
+   * @returns
    */
   async logCount() {
     let data = await new LogCount(this.e).count()

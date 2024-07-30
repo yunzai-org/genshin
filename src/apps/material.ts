@@ -84,13 +84,11 @@ export class material extends Plugin {
     '?x-oss-process=image//resize,s_1000/quality,q_80/auto-orient,0/interlace,1/format,jpg'
 
   /** 初始化创建配置文件 */
-  async init() {
-
-  }
+  async init() {}
 
   /**
    * #刻晴素材 *符玄素材
-   * @returns 
+   * @returns
    */
   async material() {
     let isUpdate = this.e.msg.includes('更新')

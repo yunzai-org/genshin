@@ -5,7 +5,6 @@ import moment from 'moment'
 import { Character, Weapon } from './miao.js'
 
 export default class GachaData extends base {
-
   pool
 
   def

@@ -34,7 +34,7 @@ export class abbrSet extends Plugin {
   }
 
   /**
-   * 
+   *
    */
   isSr = false
 
@@ -129,8 +129,8 @@ export class abbrSet extends Plugin {
   }
 
   /**
-   * 
-   * @param data 
+   *
+   * @param data
    */
   save(data) {
     data = YAML.stringify(data)

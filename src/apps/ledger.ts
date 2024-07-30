@@ -39,7 +39,7 @@ export class ledger extends Plugin {
   prefix
 
   /**
-   * 
+   *
    */
   get button() {
     this.prefix = this.e?.isSr ? '*星琼' : '#原石'
@@ -49,10 +49,9 @@ export class ledger extends Plugin {
     ])
   }
 
-
   /**
-   * #原石札记 
-   * @returns 
+   * #原石札记
+   * @returns
    */
   async ledger() {
     let data = await new Ledger(this.e).get()
@@ -76,8 +75,8 @@ export class ledger extends Plugin {
   }
 
   /**
-   * 
-   * @returns 
+   *
+   * @returns
    */
   async ledgerCount() {
     let data = await new Ledger(this.e).ledgerCount()
@@ -96,8 +95,8 @@ export class ledger extends Plugin {
   }
 
   /**
-   * 
-   * @returns 
+   *
+   * @returns
    */
   async ledgerCountHistory() {
     let data = await new Ledger(this.e).ledgerCountHistory()

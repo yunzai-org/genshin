@@ -18,7 +18,6 @@ export class sevenSaints extends Plugin {
     })
   }
 
-
   get button() {
     return global.segment.button([
       { text: '牌组', callback: `#七圣召唤查询牌组` },

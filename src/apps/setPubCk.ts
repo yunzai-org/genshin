@@ -29,9 +29,7 @@ export class setPubCk extends Plugin {
     })
   }
 
-
   ck
-
 
   /**
    * 配置公共ck
@@ -48,8 +46,8 @@ export class setPubCk extends Plugin {
   }
 
   /**
-   * 
-   * @returns 
+   *
+   * @returns
    */
   async pubCk() {
     let msg = this.e.msg
@@ -141,15 +139,19 @@ export class setPubCk extends Plugin {
     await this.e.reply(`配置公共ck成功：第${ckArr.length}个`)
   }
 
-
   /**
    * 检查ck是否可用
-   * @returns 
+   * @returns
    */
   async checkCk() {
     let url =
       'https://api-takumi.mihoyo.com/binding/api/getUserGameRolesByCookie?game_biz=hk4e_cn'
-    const res = await fetch(url, { method: 'get', headers: { Cookie: this.ck } }).then(res => res.json()).catch(() => false)
+    const res = await fetch(url, {
+      method: 'get',
+      headers: { Cookie: this.ck }
+    })
+      .then(res => res.json())
+      .catch(() => false)
     if (!res) return false
     if (res.retcode != 0) {
       this.checkMsg = res.message
@@ -160,8 +162,8 @@ export class setPubCk extends Plugin {
 
   /**
    * 获取米游社通行证id
-   * @param server 
-   * @returns 
+   * @param server
+   * @returns
    */
   async getUserInfo(server = 'mys') {
     try {
@@ -190,8 +192,8 @@ export class setPubCk extends Plugin {
   }
 
   /**
-   * 
-   * @param data 
+   *
+   * @param data
    */
   save(data) {
     data = YAML.stringify(data)
@@ -199,7 +201,7 @@ export class setPubCk extends Plugin {
   }
 
   /**
-   * 
+   *
    */
   async setUserCk() {
     let set = './plugins/genshin/config/mys.set.yaml'

@@ -26,8 +26,8 @@ export class exchange extends Plugin {
   code_ver
 
   /**
-   * 
-   * @returns 
+   *
+   * @returns
    */
   async getCode() {
     let reg = this.e.msg.match(
@@ -75,7 +75,9 @@ export class exchange extends Plugin {
       if (val.code) {
         codes.push([
           val.code,
-          global.segment.button([{ text: '兑换', callback: `#兑换码使用${val.code}` }])
+          global.segment.button([
+            { text: '兑换', callback: `#兑换码使用${val.code}` }
+          ])
         ])
       }
     }
@@ -86,9 +88,9 @@ export class exchange extends Plugin {
   }
 
   /**
-   * 
-   * @param type 
-   * @returns 
+   *
+   * @param type
+   * @returns
    */
   async getData(type) {
     let url = {
@@ -122,7 +124,7 @@ export class exchange extends Plugin {
 
   /**
    * 获取 "act_id"
-   * @returns 
+   * @returns
    */
   async getActId() {
     let ret = await this.getData('actId')
@@ -158,7 +160,6 @@ export class exchange extends Plugin {
       }
     }
   }
-
 
   /**
    * 兑换码使用

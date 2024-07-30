@@ -58,7 +58,6 @@ export class userAdmin extends Plugin {
     ])
   }
 
-
   /**
    * #刷新用户缓存 / #重置用户缓存
    */
@@ -73,7 +72,7 @@ export class userAdmin extends Plugin {
   }
 
   /**
-   * 
+   *
    */
   async delDisable() {
     let count = await MysInfo.delDisable()

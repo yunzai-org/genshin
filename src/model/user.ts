@@ -545,7 +545,7 @@ export default class User extends base {
         try {
           let src = `./data/MysCookie/${qq}.yaml`
           let dest = `./temp/MysCookieBak/${qq}.yaml`
-          await fs.promises.unlink(dest).catch(_ => { })
+          await fs.promises.unlink(dest).catch(_ => {})
           await fs.promises.copyFile(src, dest)
           await fs.promises.unlink(src)
         } catch (err) {
@@ -716,7 +716,8 @@ export default class User extends base {
           e.reply('请切换到主用户并发送接受绑定的命令...')
           return true
         }
-        let verify = (await global.redis.get(`Yz:NoteUser:verify:${mainId}`)) || ''
+        let verify =
+          (await global.redis.get(`Yz:NoteUser:verify:${mainId}`)) || ''
         verify = verify.split('||')
         if (!verify || verify[0] !== idRet[2] || !verify[1]) {
           e.reply('校验失败，请发送【#绑定用户】重新开始绑定流程')

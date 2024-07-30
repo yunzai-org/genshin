@@ -120,12 +120,18 @@ export class strategy extends Plugin {
     button = global.segment.button(button)
 
     if (fs.existsSync(this.sfPath) && !isUpdate) {
-      await this.e.reply([global.segment.image(`file://${this.sfPath}`), button])
+      await this.e.reply([
+        global.segment.image(`file://${this.sfPath}`),
+        button
+      ])
       return
     }
 
     if (await this.getImg(role.name, group)) {
-      await this.e.reply([global.segment.image(`file://${this.sfPath}`), button])
+      await this.e.reply([
+        global.segment.image(`file://${this.sfPath}`),
+        button
+      ])
     }
   }
 

@@ -1,14 +1,12 @@
 {
   "name": "yz-genshin",
   "version": "1.0.0",
-  "description": "YunzaiJS插件",
+  "description": "YunzaiJS原神插件",
   "author": "ningmengchongshui",
   "type": "module",
   "private": true,
   "scripts": {
     "app": "node --no-warnings=ExperimentalWarning --loader ts-node/esm src/main.js",
-    "dev": "nodemon",
-    "img": "node --no-warnings=ExperimentalWarning --loader ts-node/esm src/server.ts",
     "build": "rollup  --config rollup.config.js",
     "format": "prettier --write ."
   },
@@ -20,12 +18,13 @@
     "@rollup/plugin-typescript": "^11.1.3",
     "@types/lodash": "^4.17.7",
     "@types/react": "^18.3.3",
-    "nodemon": "^3.0.1",
     "prettier": "^3.2.5",
     "rollup": "^4.16.4",
     "tailwindcss": "^3.4.3",
     "ts-node": "^10.9.1",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.3",
+    "yunzai": "^1.0.1-rc.3",
+    "yunzai-mys": "^1.0.0-rc.0"
   },
   "files": [
     "public",

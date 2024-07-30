@@ -6,7 +6,6 @@ import GachaLog from './gachaLog.js'
 import lodash from 'lodash'
 
 export default class ExportLog extends base {
-
   urlKey
   uidKey
   path
@@ -118,7 +117,7 @@ export default class ExportLog extends base {
     else this.e.reply('导出失败：暂不支持发送文件')
 
     /** 删除文件 */
-    fs.unlink(saveFile, () => { })
+    fs.unlink(saveFile, () => {})
   }
 
   async getUid() {
@@ -238,7 +237,7 @@ export default class ExportLog extends base {
     }
 
     /** 删除文件 */
-    fs.unlink(textPath, () => { })
+    fs.unlink(textPath, () => {})
 
     await this.e.reply(
       `${this.e.file.name}，${this.e.isSr ? '星铁' : '原神'}记录导入成功\n${msg.join('\n')}`

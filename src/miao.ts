@@ -1,4 +1,9 @@
 import { join } from 'path'
+/**
+ * ************
+ * 依赖于喵喵插件
+ * ************
+ */
 const components = join(
   process.cwd(),
   './plugins/miao-plugin/components/index.js'

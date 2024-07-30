@@ -62,14 +62,14 @@ export class user extends Plugin {
   }
 
   /**
-   * 
+   *
    */
   get User() {
     return new User(this.e)
   }
 
   /**
-   * 
+   *
    */
   async init() {
     /**
@@ -80,7 +80,7 @@ export class user extends Plugin {
 
   /**
    * 接受到消息都会执行一次
-   * @returns 
+   * @returns
    */
   accept() {
     if (!this.e.msg) return
@@ -111,7 +111,7 @@ export class user extends Plugin {
 
   /**
    * 绑定uid
-   * @returns 
+   * @returns
    */
   saveUid() {
     if (!this.e.msg) return
@@ -127,7 +127,7 @@ export class user extends Plugin {
 
   /**
    * 绑定星铁uid
-   * @returns 
+   * @returns
    */
   saveSrUid() {
     if (!this.e.msg) return
@@ -169,7 +169,7 @@ export class user extends Plugin {
 
   /**
    * 绑定ck
-   * @returns 
+   * @returns
    */
   async bingCk() {
     let set = gsCfg.getConfig('mys', 'set')
@@ -210,8 +210,8 @@ export class user extends Plugin {
   }
 
   /**
-   * 
-   * @returns 
+   *
+   * @returns
    */
   async delUid() {
     let index = this.e.msg.match(/[0-9]{1,2}$/g)
@@ -230,7 +230,7 @@ export class user extends Plugin {
 
   /**
    * 我的ck
-   * @returns 
+   * @returns
    */
   async myCk() {
     if (this.e.isGroup) {
@@ -257,7 +257,7 @@ export class user extends Plugin {
   }
 
   /**
-   * 
+   *
    */
   async bindNoteUser() {
     await this.User.bindNoteUser()

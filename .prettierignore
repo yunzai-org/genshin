@@ -4,8 +4,10 @@ node_modules
 /logs
 /resources
 /renderers
+/plugins
 /index.js
 /types
+/public
 /temp
 /lib
 yarn.lock

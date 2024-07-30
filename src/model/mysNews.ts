@@ -163,7 +163,7 @@ export default class MysNews extends base {
     let json
     try {
       json = JSON.parse(data.post.content)
-    } catch (error) { }
+    } catch (error) {}
 
     if (typeof json == 'object') {
       if (json.imgs && json.imgs.length > 0) {
@@ -176,7 +176,7 @@ export default class MysNews extends base {
         data.post.content = data.post.content.replace(
           img,
           img +
-          '?x-oss-process=image//resize,s_600/quality,q_80/auto-orient,0/interlace,1/format,jpg'
+            '?x-oss-process=image//resize,s_600/quality,q_80/auto-orient,0/interlace,1/format,jpg'
         )
       }
 
@@ -316,7 +316,7 @@ export default class MysNews extends base {
       img.push(
         segment.image(
           param.data.post.images[0] +
-          '?x-oss-process=image//resize,s_600/quality,q_80/auto-orient,0/interlace,1/format,jpg'
+            '?x-oss-process=image//resize,s_600/quality,q_80/auto-orient,0/interlace,1/format,jpg'
         )
       )
     }
@@ -529,7 +529,7 @@ export default class MysNews extends base {
         Bot[item]
           .pickGroup(redisapgl.GroupList[0])
           .sendMsg(msgList)
-          .then(() => { })
+          .then(() => {})
           .catch(err =>
             logger.error(
               `[米游社活动到期推送] ${item}:${redisapgl.GroupList[0]} 推送失败，错误信息${err}`
@@ -619,7 +619,9 @@ export default class MysNews extends base {
     if (!this.pushGroup[groupId]) this.pushGroup[groupId] = 0
     if (this.pushGroup[groupId] >= this.maxNum) return
 
-    let sended = await global.redis.get(`${this.key}${botId}:${groupId}:${postId}`)
+    let sended = await global.redis.get(
+      `${this.key}${botId}:${groupId}:${postId}`
+    )
     if (sended) return
 
     let game = this.game(gid)

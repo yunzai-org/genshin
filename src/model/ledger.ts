@@ -6,7 +6,6 @@ import fs from 'node:fs'
 import { promisify } from 'util'
 const sleep = promisify(setTimeout)
 export default class Ledger extends base {
-
   color = [
     '#73a9c6',
     '#d56565',
@@ -388,13 +387,13 @@ export default class Ledger extends base {
       this.e.reply(
         this.e?.isSr
           ? [
-            '暂无星琼数据，请先发送 *星琼',
-            segment.button([{ text: '星琼', input: '*星琼' }])
-          ]
+              '暂无星琼数据，请先发送 *星琼',
+              segment.button([{ text: '星琼', input: '*星琼' }])
+            ]
           : [
-            '暂无原石数据，请先发送 #原石',
-            segment.button([{ text: '原石', input: '#原石' }])
-          ],
+              '暂无原石数据，请先发送 #原石',
+              segment.button([{ text: '原石', input: '#原石' }])
+            ],
         false,
         { at: true }
       )

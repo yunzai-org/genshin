@@ -1,6 +1,7 @@
 import base from './base.js';
 export default class blueprint extends base {
     constructor(e: any);
+    mysApi: any;
     model: string;
     checkMsg: string;
     get(role: any): Promise<false | {

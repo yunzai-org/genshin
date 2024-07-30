@@ -1,8 +1,9 @@
 import { Plugin } from 'yunzai';
+import User from '../model/user.js';
 export declare class userAdmin extends Plugin {
-    User: any;
-    button: any;
     constructor(e: any);
+    get User(): User;
+    get button(): any;
     userAdmin(): Promise<boolean>;
     resetCache(): Promise<void>;
     delDisable(): Promise<void>;

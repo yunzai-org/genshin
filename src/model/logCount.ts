@@ -6,42 +6,45 @@ import moment from 'moment'
 import GachaLog from './gachaLog.js'
 
 export default class LogCount extends base {
+
+
+  /** 五星武器 */
+  weapon5 = [
+    '阿莫斯之弓',
+    '天空之翼',
+    '天空之卷',
+    '天空之脊',
+    '天空之傲',
+    '天空之刃',
+    '四风原典',
+    '和璞鸢',
+    '狼的末路',
+    '风鹰剑'
+  ]
+
+  /** 五星角色 */
+  role5 = ['刻晴', '莫娜', '七七', '迪卢克', '琴', '提纳里', '迪希雅']
+
+  pool = [
+    { type: 301, typeName: '角色' },
+    { type: 302, typeName: '武器' },
+    { type: 500, typeName: '集录' },
+    { type: 200, typeName: '常驻' }
+  ]
+
+  urlKey = `${this.prefix}url:`
+
+  uidKey = `Yz:genshin:mys:qq-uid:${this.userId}`
+
+  path = `./data/gachaJson/${this.e.user_id}/`
+
   constructor(e) {
     super(e)
     this.model = 'logCount'
 
-    this.urlKey = `${this.prefix}url:`
-    /** 绑定的uid */
-    this.uidKey = `Yz:genshin:mys:qq-uid:${this.userId}`
-
-    this.path = `./data/gachaJson/${this.e.user_id}/`
-
-    this.pool = [
-      { type: 301, typeName: '角色' },
-      { type: 302, typeName: '武器' },
-      { type: 500, typeName: '集录' },
-      { type: 200, typeName: '常驻' }
-    ]
-
-    /** 五星角色 */
-    this.role5 = ['刻晴', '莫娜', '七七', '迪卢克', '琴', '提纳里', '迪希雅']
-    /** 五星武器 */
-    this.weapon5 = [
-      '阿莫斯之弓',
-      '天空之翼',
-      '天空之卷',
-      '天空之脊',
-      '天空之傲',
-      '天空之刃',
-      '四风原典',
-      '和璞鸢',
-      '狼的末路',
-      '风鹰剑'
-    ]
     if (e.isSr) {
       /** 绑定的uid */
       this.uidKey = `Yz:srJson:mys:qq-uid:${this.userId}`
-
       this.path = `./data/srJson/${this.e.user_id}/`
       this.pool = [
         { type: 11, typeName: '角色' },

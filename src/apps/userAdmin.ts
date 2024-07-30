@@ -2,8 +2,6 @@ import { Plugin } from 'yunzai'
 import { MysInfo } from 'yunzai-mys'
 import User from '../model/user.js'
 export class userAdmin extends Plugin {
-  User = null
-  button = null
   constructor(e) {
     super({
       name: '用户管理',
@@ -27,8 +25,14 @@ export class userAdmin extends Plugin {
         }
       ]
     })
-    this.User = new User(e)
-    this.button = segment.button(
+  }
+
+  get User() {
+    return new User(this.e)
+  }
+
+  get button() {
+    return global.segment.button(
       [
         { text: '用户统计', callback: '#用户统计' },
         { text: '删除无效', callback: '#删除无效用户' }
@@ -54,7 +58,10 @@ export class userAdmin extends Plugin {
     ])
   }
 
-  /** #刷新用户缓存 / #重置用户缓存 */
+
+  /**
+   * #刷新用户缓存 / #重置用户缓存
+   */
   async resetCache() {
     // 清空老数据
     const clearData = /重置/.test(this.e.msg)
@@ -65,6 +72,9 @@ export class userAdmin extends Plugin {
     ])
   }
 
+  /**
+   * 
+   */
   async delDisable() {
     let count = await MysInfo.delDisable()
     this.reply([

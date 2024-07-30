@@ -8,7 +8,7 @@ export default function Help({ helpData }) {
     <>
       <div className="container" id="container">
         <div className="head_box">
-          <div className="id_text">{BOT_NAME} System</div>
+          <div className="id_text">{BOT_NAME} Genshin</div>
           <h2 className="day_text">使用说明 V{version}</h2>
           <img
             className="genshin_logo"

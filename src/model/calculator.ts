@@ -10,6 +10,11 @@ export default class Calculator extends base {
     this.checkMsg = `设置角色、武器、技能等级有误\n指令：${e.isSr ? '*克拉拉养成\n示例：*克拉拉养成75 80 6 9 9 9\n参数为角色、武器、普攻、战技、终结技、天赋' : '#刻晴养成\n示例：#刻晴养成81 90 9 9 9\n参数为角色、武器、技能等级'}`
   }
 
+  checkMsg
+  mysApi
+  role
+  headers
+
   async get(role) {
     this.role = role
     /** 获取绑定uid */

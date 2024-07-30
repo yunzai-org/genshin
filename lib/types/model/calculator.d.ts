@@ -1,6 +1,10 @@
 import base from './base.js';
 export default class Calculator extends base {
     constructor(e: any);
+    checkMsg: any;
+    mysApi: any;
+    role: any;
+    headers: any;
     get(role: any): Promise<false | {
         tplFile: string;
         pluResPath: string;

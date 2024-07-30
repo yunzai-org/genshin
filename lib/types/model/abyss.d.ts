@@ -1,6 +1,7 @@
 import base from './base.js';
 export default class Abyss extends base {
     constructor(e: any);
+    e: any;
     getAbyss(): Promise<false | {
         length: number;
         toString(): string;
@@ -87,9 +88,9 @@ export default class Abyss extends base {
         at(index: number): any;
         saveId: any;
         uid: any;
-        time: number;
+        time: string;
         max_floor: any;
-        total_star: number;
+        total_star: string;
         list: any;
         total_battle_times: any;
         tplFile: string;
@@ -191,9 +192,9 @@ export default class Abyss extends base {
         at(index: number): any;
         saveId: any;
         uid: any;
-        time: number;
+        time: string;
         max_floor: any;
-        total_star: number;
+        total_star: string;
         list: any;
         total_battle_times: any;
     };

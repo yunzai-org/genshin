@@ -1,5 +1,9 @@
 import base from './base.js';
 export default class GachaLog extends base {
+    urlKey: any;
+    uidKey: any;
+    path: any;
+    pool: any;
     constructor(e: any);
     static getIcon(name: any, type?: string, game?: string): any;
     logUrl(): Promise<any>;

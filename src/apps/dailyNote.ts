@@ -1,7 +1,11 @@
 import { Plugin } from 'yunzai'
 import { GSCfg as gsCfg } from 'yunzai-mys'
 import Note from '../model/note.js'
+
+//
 gsCfg.cpCfg('mys', 'set')
+
+//
 export class dailyNote extends Plugin {
   set = null
   constructor() {

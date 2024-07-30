@@ -2,6 +2,7 @@ import { Plugin } from 'yunzai'
 import { MysInfo } from 'yunzai-mys'
 import fetch from 'node-fetch'
 export class takeBirthdayPhoto extends Plugin {
+
   constructor() {
     super({
       name: '留影叙佳期',
@@ -13,11 +14,20 @@ export class takeBirthdayPhoto extends Plugin {
         }
       ]
     })
-    this.button = segment.button([{ text: '留影叙佳期', input: '#留影叙佳期' }])
   }
 
-  button = null
+  /**
+   * 
+   */
+  get button() {
+    return global.segment.button([{ text: '留影叙佳期', input: '#留影叙佳期' }])
+  }
 
+  /**
+   * 
+   * @param e 
+   * @returns 
+   */
   async birthdaystar(e) {
     let uid = await MysInfo.getUid(this.e)
     if (!uid) return false
@@ -26,7 +36,7 @@ export class takeBirthdayPhoto extends Plugin {
       e.reply(
         [
           '请先绑定ck再使用本功能哦~',
-          segment.button([{ text: 'Cookie帮助', callback: '#Cookie帮助' }])
+          global.segment.button([{ text: 'Cookie帮助', callback: '#Cookie帮助' }])
         ],
         true
       )
@@ -60,7 +70,7 @@ export class takeBirthdayPhoto extends Plugin {
     try {
       for (const role of birthday_star_list) {
         await e.reply(`正在获取${role.name}的图片，请稍等~`, true)
-        await e.reply(segment.image(role.take_picture))
+        await e.reply(global.segment.image(role.take_picture))
         const message = await this.getBirthdayStarImg(
           uid,
           e_hk4e_token,
@@ -85,6 +95,12 @@ export class takeBirthdayPhoto extends Plugin {
     return true
   }
 
+  /**
+   * 
+   * @param ck 
+   * @param uid 
+   * @returns 
+   */
   async getEHK4EToken(ck, uid) {
     const url = this.region.includes('cn')
       ? 'https://api-takumi.mihoyo.com/common/badge/v1/login/account'
@@ -112,6 +128,11 @@ export class takeBirthdayPhoto extends Plugin {
     return e_hk4e_token
   }
 
+  /**
+   * 
+   * @param uid 
+   * @returns 
+   */
   async getServer(uid) {
     switch (String(uid).slice(0, -8)) {
       case '1':
@@ -132,21 +153,33 @@ export class takeBirthdayPhoto extends Plugin {
     return 'cn_gf01'
   }
 
+  /**
+   * 
+   * @param uid 
+   * @param e_hk4e_token 
+   * @param ck 
+   * @returns 
+   */
   async getBirthdayStar(uid, e_hk4e_token, ck) {
     const headers = { Cookie: `e_hk4e_token=${e_hk4e_token};${ck}` }
     const url = `https://hk4e-api.mihoyo.com/event/birthdaystar/account/index?lang=zh-cn&badge_uid=${uid}&badge_region=${this.region}&game_biz=${this.game_biz}&activity_id=20220301153521`
-    let res = await fetch(url, { headers })
-    res = await res.json()
+    const res = await fetch(url, { headers }).then(res => res.json())
     return res.data.role
   }
 
+  /**
+   * 
+   * @param uid 
+   * @param e_hk4e_token 
+   * @param ck 
+   * @param role_id 
+   * @returns 
+   */
   async getBirthdayStarImg(uid, e_hk4e_token, ck, role_id) {
     const headers = { Cookie: `e_hk4e_token=${e_hk4e_token};${ck}` }
     const url = `https://hk4e-api.mihoyo.com/event/birthdaystar/account/post_my_draw?lang=zh-cn&badge_uid=${uid}&badge_region=${this.region}&game_biz=${this.game_biz}&activity_id=20220301153521`
     const body = JSON.stringify({ role_id: Number(role_id) })
-    let res = await fetch(url, { method: 'POST', body, headers })
-    res = await res.json()
-
+    const res = await fetch(url, { method: 'POST', body, headers }).then(res => res.json())
     if (res.retcode != 0) return res.message
     else return 'success'
   }

@@ -1,7 +1,7 @@
 import { Plugin } from 'yunzai';
 export declare class gcLog extends Plugin {
     constructor();
-    init(): Promise<void>;
+    get button(): any;
     accept(): boolean;
     logUrl(): Promise<void>;
     getLog(): Promise<void>;

@@ -1,5 +1,12 @@
 import base from './base.js';
 export default class GachaData extends base {
+    pool: any;
+    def: any;
+    ele: any;
+    fiveHave: any;
+    res: any;
+    fourHave: any;
+    type: any;
     constructor(e: any);
     static init(e: any): Promise<GachaData>;
     static getImg(name: any, type?: string): any;

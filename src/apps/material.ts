@@ -2,6 +2,48 @@ import { Plugin, downFile } from 'yunzai'
 import { gsCfg } from 'yunzai-mys'
 import fs from 'node:fs'
 import fetch from 'node-fetch'
+
+const path = './temp/material/gs/友人A'
+const pathOther = './temp/material/gs/other'
+const srPath = './temp/material/sr/小橙子啊'
+const srPathOther = './temp/material/sr/other'
+
+const url =
+  'https://bbs-api.mihoyo.com/post/wapi/getPostFullInCollection?&gids=2&order_type=2&collection_id='
+
+const collection_id = [428421, 1164644, 1362644]
+const srCollection_id = [1998643, 2146693, 2279356]
+
+const special = [
+  '雷电将军',
+  '珊瑚宫心海',
+  '菲谢尔',
+  '托马',
+  '八重神子',
+  '九条裟罗',
+  '辛焱',
+  '神里绫华'
+]
+
+const oss =
+  '?x-oss-process=image//resize,s_1000/quality,q_80/auto-orient,0/interlace,1/format,jpg'
+
+const Arr = [
+  './temp',
+  './temp/material',
+  './temp/material/gs',
+  './temp/material/sr',
+  path,
+  pathOther,
+  srPath,
+  srPathOther
+]
+
+for (let dir of Arr) {
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir)
+}
+
+//
 export class material extends Plugin {
   constructor() {
     super({
@@ -43,23 +85,13 @@ export class material extends Plugin {
 
   /** 初始化创建配置文件 */
   async init() {
-    for (let dir of [
-      './temp',
-      './temp/material',
-      './temp/material/gs',
-      './temp/material/sr',
-      this.path,
-      this.pathOther,
-      this.srPath,
-      this.srPathOther
-    ]) {
-      if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir)
-      }
-    }
+
   }
 
-  /** #刻晴素材 *符玄素材 */
+  /**
+   * #刻晴素材 *符玄素材
+   * @returns 
+   */
   async material() {
     let isUpdate = this.e.msg.includes('更新')
     let role = gsCfg.getRole(this.e.msg, '星铁|突破|材料|素材|更新')
@@ -78,27 +110,27 @@ export class material extends Plugin {
     this.imgPath = `${this[pathSuffix + 'Path']}/${role.name}.jpg`
 
     if (fs.existsSync(this.imgPath) && !isUpdate) {
-      await this.e.reply(segment.image(`file://${this.imgPath}`))
+      await this.e.reply(global.segment.image(`file://${this.imgPath}`))
       return
     }
 
     if (await this[`getImg${pathSuffix ? 'Sr' : ''}`](role.name)) {
-      return await this.e.reply(segment.image(`file://${this.imgPath}`))
+      return await this.e.reply(global.segment.image(`file://${this.imgPath}`))
     }
 
     this.imgPath = `${this[pathSuffix + 'PathOther']}/${role.name}.jpg`
 
     if (fs.existsSync(this.imgPath) && !isUpdate) {
-      await this.e.reply(segment.image(`file://${this.imgPath}`))
+      await this.e.reply(global.segment.image(`file://${this.imgPath}`))
       return
     }
 
     if (await this[`getImg${pathSuffix ? 'OtherSr' : 'Other'}`](role.name)) {
-      return await this.e.reply(segment.image(`file://${this.imgPath}`))
+      return await this.e.reply(global.segment.image(`file://${this.imgPath}`))
     }
 
     if (await this[`getImg${pathSuffix ? 'Other2Sr' : 'Other2'}`](role.name)) {
-      return await this.e.reply(segment.image(`file://${this.imgPath}`))
+      return await this.e.reply(global.segment.image(`file://${this.imgPath}`))
     }
   }
 

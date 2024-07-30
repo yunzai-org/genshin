@@ -19,6 +19,10 @@ export class exchange extends Plugin {
     })
   }
 
+  /**
+   * 
+   * @returns 
+   */
   async getCode() {
     let reg = this.e.msg.match(
       /^(#|\*)?(原神|星铁|崩铁|崩三|崩坏三|崩坏3)?(直播|前瞻)?兑换码$/
@@ -65,7 +69,7 @@ export class exchange extends Plugin {
       if (val.code) {
         codes.push([
           val.code,
-          segment.button([{ text: '兑换', callback: `#兑换码使用${val.code}` }])
+          global.segment.button([{ text: '兑换', callback: `#兑换码使用${val.code}` }])
         ])
       }
     }
@@ -75,6 +79,11 @@ export class exchange extends Plugin {
     await this.e.reply(MSG)
   }
 
+  /**
+   * 
+   * @param type 
+   * @returns 
+   */
   async getData(type) {
     let url = {
       index: `https://api-takumi.mihoyo.com/event/miyolive/index`,
@@ -105,13 +114,13 @@ export class exchange extends Plugin {
     return res
   }
 
-  // 获取 "act_id"
+  /**
+   * 获取 "act_id"
+   * @returns 
+   */
   async getActId() {
     let ret = await this.getData('actId')
-    if (ret.error || ret.retcode !== 0) {
-      return ''
-    }
-
+    if (ret.error || ret.retcode !== 0) return ''
     for (const p of ret.data.list) {
       let post
       try {
@@ -144,7 +153,9 @@ export class exchange extends Plugin {
     }
   }
 
-  // 兑换码使用
+  /**
+   * 兑换码使用
+   */
   async useCode() {
     const cdkCode = this.e.msg.replace(/#(兑换码使用|cdk-u)/, '').trim()
     const res = await MysInfo.get(this.e, 'useCdk', { cdk: cdkCode })

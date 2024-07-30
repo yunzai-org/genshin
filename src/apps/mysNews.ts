@@ -43,13 +43,12 @@ export class mysNews extends Plugin {
       ]
     })
 
-    /** 定时任务 */
-    this.task = {
-      cron: gsCfg.getConfig('mys', 'pushNews').pushTime,
-      name: '米游社公告推送任务',
-      fnc: () => this.mysNewsTask(),
-      log: false
-    }
+    // this.task = {
+    //   cron: gsCfg.getConfig('mys', 'pushNews').pushTime,
+    //   name: '米游社公告推送任务',
+    //   fnc: () => this.mysNewsTask(),
+    //   log: false
+    // }
   }
 
   file = './plugins/genshin/config/mys.pushNews.yaml'

@@ -2,7 +2,6 @@ import { Plugin } from 'yunzai'
 import { GSCfg as gsCfg } from 'yunzai-mys'
 import User from '../model/user.js'
 export class user extends Plugin {
-  User = null
   constructor(e) {
     super({
       name: '用户绑定',
@@ -60,15 +59,29 @@ export class user extends Plugin {
         }
       ]
     })
-    this.User = new User(e)
   }
 
+  /**
+   * 
+   */
+  get User() {
+    return new User(this.e)
+  }
+
+  /**
+   * 
+   */
   async init() {
-    /** 加载旧的绑定ck json */
+    /**
+     * 加载旧的绑定ck json
+     */
     await this.loadOldData()
   }
 
-  /** 接受到消息都会执行一次 */
+  /**
+   * 接受到消息都会执行一次
+   * @returns 
+   */
   accept() {
     if (!this.e.msg) return
     // 由于手机端米游社网页可能获取不到ltuid 可以尝试在通行证页面获取login_uid
@@ -84,13 +97,11 @@ export class user extends Plugin {
       this.e.msg = '#绑定Cookie'
       return true
     }
-
     if (/^#?(原神)?绑定uid$/i.test(this.e.msg)) {
       this.setContext('saveUid')
       this.reply('请发送绑定的原神uid', false, { at: true })
       return true
     }
-
     if (/^#?星铁绑定uid$/i.test(this.e.msg)) {
       this.setContext('saveSrUid')
       this.reply('请发送绑定的星铁uid', false, { at: true })
@@ -98,7 +109,10 @@ export class user extends Plugin {
     }
   }
 
-  /** 绑定uid */
+  /**
+   * 绑定uid
+   * @returns 
+   */
   saveUid() {
     if (!this.e.msg) return
     let uid = this.e.msg.match(/([1-9]|18)[0-9]{8}/g)
@@ -111,7 +125,10 @@ export class user extends Plugin {
     this.finish('saveUid')
   }
 
-  /** 绑定星铁uid */
+  /**
+   * 绑定星铁uid
+   * @returns 
+   */
   saveSrUid() {
     if (!this.e.msg) return
     let uid = this.e.msg.match(/([1-9]|18)[0-9]{8}/g)
@@ -126,17 +143,23 @@ export class user extends Plugin {
     this.finish('saveSrUid')
   }
 
-  /** 未登录ck */
+  /**
+   * 未登录ck
+   */
   async noLogin() {
     this.reply('绑定Cookie失败\n请先【登录米游社】或【登录通行证】再获取Cookie')
   }
 
-  /** #ck代码 */
+  /**
+   * ck代码
+   */
   async ckCode() {
     await this.reply("javascript:(()=>{prompt('',document.cookie)})();")
   }
 
-  /** ck帮助 */
+  /**
+   * ck帮助
+   */
   async ckHelp() {
     let set = gsCfg.getConfig('mys', 'set')
     await this.reply(
@@ -144,7 +167,10 @@ export class user extends Plugin {
     )
   }
 
-  /** 绑定ck */
+  /**
+   * 绑定ck
+   * @returns 
+   */
   async bingCk() {
     let set = gsCfg.getConfig('mys', 'set')
 
@@ -158,13 +184,17 @@ export class user extends Plugin {
     await this.User.bing()
   }
 
-  /** 删除ck */
+  /**
+   * 删除ck
+   */
   async delCk() {
     let msg = await this.User.delCk()
     await this.reply(msg)
   }
 
-  /** 绑定uid */
+  /**
+   * 绑定uid
+   */
   async bingUid() {
     await this.User.bingUid()
   }
@@ -179,6 +209,10 @@ export class user extends Plugin {
     }
   }
 
+  /**
+   * 
+   * @returns 
+   */
   async delUid() {
     let index = this.e.msg.match(/[0-9]{1,2}$/g)
     if (!index) {
@@ -194,7 +228,10 @@ export class user extends Plugin {
     }
   }
 
-  /** 我的ck */
+  /**
+   * 我的ck
+   * @returns 
+   */
   async myCk() {
     if (this.e.isGroup) {
       await this.reply('请私聊查看')
@@ -203,18 +240,25 @@ export class user extends Plugin {
     await this.User.myCk()
   }
 
-  /** 加载旧的绑定ck json */
+  /**
+   * 加载旧的绑定ck
+   */
   async loadOldData() {
     await this.User.loadOldDataV2()
     await this.User.loadOldDataV3()
     await this.User.loadOldUid()
   }
 
-  /** 检查用户CK状态 **/
+  /**
+   * 检查用户CK状态
+   */
   async checkCkStatus() {
     await this.User.checkCkStatus()
   }
 
+  /**
+   * 
+   */
   async bindNoteUser() {
     await this.User.bindNoteUser()
   }

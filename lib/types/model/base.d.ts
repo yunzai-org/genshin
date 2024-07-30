@@ -1,4 +1,6 @@
 export default class base {
+    e: any;
+    userId: any;
     constructor(e?: {});
     model: string;
     _path: string;

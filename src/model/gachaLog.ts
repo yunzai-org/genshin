@@ -9,6 +9,12 @@ import { promisify } from 'util'
 const sleep = promisify(setTimeout)
 
 export default class GachaLog extends base {
+
+  urlKey
+  uidKey
+  path
+  pool
+
   constructor(e) {
     super(e)
     this.model = 'gachaLog'

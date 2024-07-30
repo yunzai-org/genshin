@@ -10,6 +10,8 @@ export default class Abyss extends base {
     this.model = 'abyss'
   }
 
+  e
+
   async getAbyss() {
     let scheduleType = 1
     if (this.e.msg.includes('上期') || this.e.msg.includes('往期')) {
@@ -52,14 +54,14 @@ export default class Abyss extends base {
 
   abyssData(data) {
     let startTime = moment.unix(data.start_time)
-    let time = Number(startTime.month()) + 1
+    let time: number | string = Number(startTime.month()) + 1
     if (startTime.date() >= 15) {
       time = time + '月下'
     } else {
       time = time + '月上'
     }
 
-    let totalStar = 0
+    let totalStar: number | string = 0
     let star = []
     for (let val of data.floors) {
       if (val.index < 9) {

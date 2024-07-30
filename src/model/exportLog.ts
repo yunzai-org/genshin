@@ -1,4 +1,3 @@
-
 import { ConfigController as cfg, downFile } from 'yunzai'
 import base from './base.js'
 import fs from 'node:fs'
@@ -7,6 +6,15 @@ import GachaLog from './gachaLog.js'
 import lodash from 'lodash'
 
 export default class ExportLog extends base {
+
+  urlKey
+  uidKey
+  path
+  game
+  pool
+  typeName
+  uid
+
   constructor(e) {
     super(e)
     this.model = 'gachaLog'

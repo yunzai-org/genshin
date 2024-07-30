@@ -1,5 +1,16 @@
 import base from './base.js';
 export default class Ledger extends base {
+    color: string[];
+    action: {
+        other: number;
+        adventure_reward: number;
+        space_reward: number;
+        daily_reward: number;
+        abyss_reward: number;
+        mail_reward: number;
+        event_reward: number;
+    };
+    month: any;
     constructor(e: any);
     get(): Promise<any>;
     getMonth(): boolean;

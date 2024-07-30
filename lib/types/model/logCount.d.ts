@@ -1,5 +1,14 @@
 import base from './base.js';
 export default class LogCount extends base {
+    weapon5: string[];
+    role5: string[];
+    pool: {
+        type: number;
+        typeName: string;
+    }[];
+    urlKey: string;
+    uidKey: string;
+    path: string;
     constructor(e: any);
     readJson(): {
         list: any[];

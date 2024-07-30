@@ -4,6 +4,8 @@ import { Common, Version } from './miao.js'
 import { Character } from './miao.js'
 
 export default class base {
+  e
+  userId
   constructor(e = {}) {
     this.e = e
     this.userId = e?.user_id

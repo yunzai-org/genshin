@@ -3,6 +3,15 @@ import { GSCfg as gsCfg } from 'yunzai-mys'
 import { Plugin, makeForwardMsg } from 'yunzai'
 import YAML from 'yaml'
 import lodash from 'lodash'
+
+const file = './plugins/genshin/config/role.name.yaml'
+const str = `神里绫华:
+- 龟龟
+- 小乌龟`
+
+// files
+if (!fs.existsSync(file)) fs.writeFileSync(file, str)
+
 export class abbrSet extends Plugin {
   constructor() {
     super()
@@ -25,17 +34,6 @@ export class abbrSet extends Plugin {
   }
   isSr = false
   file = './plugins/genshin/config/role.name.yaml'
-
-  async init() {
-    if (!fs.existsSync(this.file)) {
-      fs.writeFileSync(
-        this.file,
-        `神里绫华:
-  - 龟龟
-  - 小乌龟`
-      )
-    }
-  }
 
   async abbr() {
     if (!(await this.checkAuth())) return
@@ -120,7 +118,9 @@ export class abbrSet extends Plugin {
 
     this.save(nameArr)
 
-    gsCfg[this.isSr ? 'sr_nameID' : 'nameID'] = false
+    const KEY = this.isSr ? 'sr_nameID' : 'nameID'
+
+    gsCfg[KEY] = false
 
     await this.reply(`设置别名成功：${ret.join('、')}`)
   }

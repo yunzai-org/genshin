@@ -6,30 +6,34 @@ import fs from 'node:fs'
 import { promisify } from 'util'
 const sleep = promisify(setTimeout)
 export default class Ledger extends base {
+
+  color = [
+    '#73a9c6',
+    '#d56565',
+    '#70b2b4',
+    '#bd9a5a',
+    '#739970',
+    '#7a6da7',
+    '#597ea0'
+  ]
+
+  action = {
+    other: 0,
+    adventure_reward: 1,
+    space_reward: 2,
+    daily_reward: 3,
+    abyss_reward: 4,
+    mail_reward: 5,
+    event_reward: 6
+  }
+
+  month
+
   constructor(e) {
     super(e)
     this.e = e
     this.model = 'ledger'
     if (this.e.msg?.includes('星琼')) this.e.isSr = true
-
-    this.color = [
-      '#73a9c6',
-      '#d56565',
-      '#70b2b4',
-      '#bd9a5a',
-      '#739970',
-      '#7a6da7',
-      '#597ea0'
-    ]
-    this.action = {
-      other: 0,
-      adventure_reward: 1,
-      space_reward: 2,
-      daily_reward: 3,
-      abyss_reward: 4,
-      mail_reward: 5,
-      event_reward: 6
-    }
   }
 
   async get() {

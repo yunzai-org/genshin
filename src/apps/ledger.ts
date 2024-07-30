@@ -1,6 +1,14 @@
 import { Plugin } from 'yunzai'
 import Ledger from '../model/ledger.js'
 import fs from 'node:fs'
+
+const file = ['./data/NoteData', './data/SR_NoteData']
+for (let i of file) {
+  if (!fs.existsSync(i)) {
+    fs.mkdirSync(i)
+  }
+}
+
 export class ledger extends Plugin {
   constructor() {
     super({
@@ -26,28 +34,24 @@ export class ledger extends Plugin {
         }
       ]
     })
-
-    Object.defineProperty(this, 'button', {
-      get() {
-        this.prefix = this.e?.isSr ? '*星琼' : '#原石'
-        return segment.button([
-          { text: '记录', callback: this.prefix },
-          { text: '统计', callback: `${this.prefix}统计` }
-        ])
-      }
-    })
   }
 
-  async init() {
-    let file = ['./data/NoteData', './data/SR_NoteData']
-    for (let i of file) {
-      if (!fs.existsSync(i)) {
-        fs.mkdirSync(i)
-      }
-    }
+  /**
+   * 
+   */
+  get button() {
+    this.prefix = this.e?.isSr ? '*星琼' : '#原石'
+    return global.segment.button([
+      { text: '记录', callback: this.prefix },
+      { text: '统计', callback: `${this.prefix}统计` }
+    ])
   }
 
-  /** #原石札记 */
+
+  /**
+   * #原石札记 
+   * @returns 
+   */
   async ledger() {
     let data = await new Ledger(this.e).get()
     if (!data) return
@@ -61,12 +65,18 @@ export class ledger extends Plugin {
     ])
   }
 
-  /** 原石任务 */
+  /**
+   * 原石任务
+   */
   async ledgerTask() {
     let ledger = new Ledger(this.e)
     await ledger.ledgerTask(!!this?.e?.msg)
   }
 
+  /**
+   * 
+   * @returns 
+   */
   async ledgerCount() {
     let data = await new Ledger(this.e).ledgerCount()
     if (!data) return
@@ -83,6 +93,10 @@ export class ledger extends Plugin {
     ])
   }
 
+  /**
+   * 
+   * @returns 
+   */
   async ledgerCountHistory() {
     let data = await new Ledger(this.e).ledgerCountHistory()
     if (!data) return

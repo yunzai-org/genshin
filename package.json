@@ -1,6 +1,6 @@
 {
   "name": "yz-genshin",
-  "version": "1.0.0-rc.0",
+  "version": "1.0.0",
   "description": "YunzaiJS插件",
   "author": "ningmengchongshui",
   "type": "module",
@@ -28,6 +28,7 @@
     "typescript": "^5.5.3"
   },
   "files": [
+    "public",
     "resources",
     "lib"
   ],

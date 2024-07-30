@@ -1,7 +1,8 @@
 import { Plugin } from 'yunzai';
+import User from '../model/user.js';
 export declare class user extends Plugin {
-    User: any;
     constructor(e: any);
+    get User(): User;
     init(): Promise<void>;
     accept(): boolean;
     saveUid(): void;

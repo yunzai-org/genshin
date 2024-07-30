@@ -4,6 +4,20 @@ import GachaLog from '../model/gachaLog.js'
 import ExportLog from '../model/exportLog.js'
 import LogCount from '../model/logCount.js'
 const _path = process.cwd() + '/plugins/genshin'
+const androidUrl = 'https://docs.qq.com/doc/DUWpYaXlvSklmVXlX'
+const file = [
+  './data/gachaJson',
+  './data/srJson',
+  './temp/html/StarRail',
+  './temp/uigf'
+]
+for (let i of file) {
+  if (!fs.existsSync(i)) {
+    fs.mkdirSync(i)
+  }
+}
+
+//
 export class gcLog extends Plugin {
   constructor() {
     super({
@@ -40,47 +54,38 @@ export class gcLog extends Plugin {
         }
       ]
     })
-
-    this.androidUrl = 'https://docs.qq.com/doc/DUWpYaXlvSklmVXlX'
-    Object.defineProperty(this, 'button', {
-      get() {
-        this.prefix = this.e?.isSr ? '*' : '#'
-        return segment.button(
-          [
-            { text: '角色记录', callback: `${this.prefix}角色记录` },
-            { text: '角色统计', callback: `${this.prefix}角色统计` }
-          ],
-          [
-            { text: '武器记录', callback: `${this.prefix}武器记录` },
-            { text: '武器统计', callback: `${this.prefix}武器统计` }
-          ],
-          [
-            { text: '集录记录', callback: `${this.prefix}集录记录` },
-            { text: '集录统计', callback: `${this.prefix}集录统计` }
-          ],
-          [
-            { text: '常驻记录', callback: `${this.prefix}常驻记录` },
-            { text: '常驻统计', callback: `${this.prefix}常驻统计` }
-          ]
-        )
-      }
-    })
   }
 
-  async init() {
-    let file = [
-      './data/gachaJson',
-      './data/srJson',
-      './temp/html/StarRail',
-      './temp/uigf'
-    ]
-    for (let i of file) {
-      if (!fs.existsSync(i)) {
-        fs.mkdirSync(i)
-      }
-    }
+
+  /**
+   * button
+   */
+  get button() {
+    this.prefix = this.e?.isSr ? '*' : '#'
+    return global.segment.button(
+      [
+        { text: '角色记录', callback: `${this.prefix}角色记录` },
+        { text: '角色统计', callback: `${this.prefix}角色统计` }
+      ],
+      [
+        { text: '武器记录', callback: `${this.prefix}武器记录` },
+        { text: '武器统计', callback: `${this.prefix}武器统计` }
+      ],
+      [
+        { text: '集录记录', callback: `${this.prefix}集录记录` },
+        { text: '集录统计', callback: `${this.prefix}集录统计` }
+      ],
+      [
+        { text: '常驻记录', callback: `${this.prefix}常驻记录` },
+        { text: '常驻统计', callback: `${this.prefix}常驻统计` }
+      ]
+    )
   }
 
+  /**
+   * 
+   * @returns 
+   */
   accept() {
     if (this.e.file) {
       let name = this.e.file?.name
@@ -95,13 +100,14 @@ export class gcLog extends Plugin {
     }
   }
 
-  /** 抽卡记录链接 */
+  /**
+   * 抽卡记录链接
+   * @returns 
+   */
   async logUrl() {
     let data = await new GachaLog(this.e).logUrl()
     if (!data) return
-
     await this.renderImg('genshin', `html/gacha/gacha-log`, data)
-
     if (this.e.isGroup) this.e.reply('已收到链接，请撤回', false, { at: true })
   }
 
@@ -120,7 +126,10 @@ export class gcLog extends Plugin {
     ])
   }
 
-  /** 导出记录 */
+  /**
+   * 导出记录
+   * @returns 
+   */
   exportLog() {
     if (this.e.isGroup && !this.e.msg.includes('强制')) {
       return this.reply(
@@ -129,22 +138,26 @@ export class gcLog extends Plugin {
         { at: true }
       )
     }
-
     return new ExportLog(this.e).exportJson()
   }
 
+  /**
+   * 
+   * @returns 
+   */
   async logJson() {
     if (!this.e.file) return this.e.reply('请发送Json文件')
-
     await new ExportLog(this.e).logJson()
-
     if (this.e.isGroup) this.e.reply('已收到文件，请撤回', false, { at: true })
   }
 
+  /**
+   * 
+   */
   help() {
     this.e.reply([
-      segment.image(`file://${_path}/resources/logHelp/记录帮助.png`),
-      segment.button([
+      global.segment.image(`file://${_path}/resources/logHelp/记录帮助.png`),
+      global.segment.button([
         { text: '电脑', callback: '#电脑帮助' },
         { text: '安卓', callback: '#安卓帮助' },
         { text: '苹果', callback: '#苹果帮助' }
@@ -152,22 +165,28 @@ export class gcLog extends Plugin {
     ])
   }
 
+  /**
+   * 
+   */
   helpPort() {
     let msg = this.e.msg.replace(/#|帮助/g, '')
-
     if (['电脑', 'pc'].includes(msg)) {
       this.e.reply(
-        segment.image(`file://${_path}/resources/logHelp/记录帮助-电脑.png`)
+        global.segment.image(`file://${_path}/resources/logHelp/记录帮助-电脑.png`)
       )
     } else if (['安卓'].includes(msg)) {
-      this.e.reply(`安卓抽卡记录获取教程：${this.androidUrl}`)
+      this.e.reply(`安卓抽卡记录获取教程：${androidUrl}`)
     } else if (['苹果', 'ios'].includes(msg)) {
       this.e.reply(
-        segment.image(`file://${_path}/resources/logHelp/记录帮助-苹果.png`)
+        global.segment.image(`file://${_path}/resources/logHelp/记录帮助-苹果.png`)
       )
     }
   }
 
+  /**
+   * 
+   * @returns 
+   */
   async logCount() {
     let data = await new LogCount(this.e).count()
     if (!data) return

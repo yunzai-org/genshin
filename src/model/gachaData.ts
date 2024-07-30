@@ -5,6 +5,21 @@ import moment from 'moment'
 import { Character, Weapon } from './miao.js'
 
 export default class GachaData extends base {
+
+  pool
+
+  def
+
+  ele
+
+  fiveHave
+
+  res
+
+  fourHave
+
+  type
+
   /**
    * @param e icqq 消息e
    * @param e.user_id 用户id

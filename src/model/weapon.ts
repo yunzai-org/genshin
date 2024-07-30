@@ -1,9 +1,7 @@
 import base from './base.js'
-import { MysInfo } from 'yunzai-mys'
-import { gsCfg } from 'yunzai-mys'
+import { MysInfo, GSCfg as gsCfg } from 'yunzai-mys'
 import { chain } from 'lodash-es'
 import { Character, Weapon } from './miao.js'
-
 export default class WeaponModel extends base {
   constructor(e) {
     super(e)

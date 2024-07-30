@@ -1,8 +1,7 @@
 import base from './base.js'
-import { gsCfg } from 'yunzai-mys'
+import { GSCfg as gsCfg } from 'yunzai-mys'
 import lodash from 'lodash'
 import moment from 'moment'
-
 import { Character, Weapon } from './miao.js'
 
 export default class GachaData extends base {

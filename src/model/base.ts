@@ -1,6 +1,5 @@
 import _ from 'lodash'
 import { ConfigController as cfg } from 'yunzai'
-
 import { Common, Version } from './miao.js'
 import { Character } from './miao.js'
 

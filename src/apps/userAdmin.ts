@@ -1,6 +1,6 @@
 import { Plugin } from 'yunzai'
-import User from '../model/user.js'
 import { MysInfo } from 'yunzai-mys'
+import User from '../model/user.js'
 export class userAdmin extends Plugin {
   User = null
   button = null

@@ -4,7 +4,8 @@ import lodash from 'lodash'
 import fetch from 'node-fetch'
 import YAML from 'yaml'
 import { GSCfg as GsCfg, MysInfo } from 'yunzai-mys'
-import { sleep } from 'yunzai'
+import { promisify } from 'util'
+const sleep = promisify(setTimeout)
 export class setPubCk extends Plugin {
   constructor() {
     super({

@@ -1,5 +1,4 @@
-import { Plugin } from 'yunzai'
-import * as common from 'yunzai'
+import { Plugin, makeForwardMsg } from 'yunzai'
 import fetch from 'node-fetch'
 import { MysInfo } from 'yunzai-mys'
 export class exchange extends Plugin {
@@ -72,8 +71,8 @@ export class exchange extends Plugin {
     }
 
     let msg = [`兑换码过期时间: \n${this.deadline}`, ...codes]
-    msg = await common.makeForwardMsg(this.e, msg, `${title}-直播兑换码`)
-    await this.reply(msg)
+    const MSG = await makeForwardMsg(this.e, msg, `${title}-直播兑换码`)
+    await this.e.reply(MSG)
   }
 
   async getData(type) {

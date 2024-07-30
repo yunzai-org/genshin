@@ -1,9 +1,7 @@
-import { Plugin } from 'yunzai'
+import { Plugin, puppeteer } from 'yunzai'
+import { GSCfg as gsCfg } from 'yunzai-mys'
 import Calculator from '../model/calculator.js'
 import Blueprint from '../model/blueprint.js'
-import { puppeteer } from 'yunzai'
-
-import { GSCfg as gsCfg } from 'yunzai-mys'
 export class calculator extends Plugin {
   constructor() {
     super({

@@ -2,7 +2,6 @@ import moment from 'moment'
 import lodash from 'lodash'
 import base from './base.js'
 import { MysInfo } from 'yunzai-mys'
-
 import { Character } from './miao.js'
 
 export default class Abyss extends base {

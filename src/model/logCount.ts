@@ -1,7 +1,7 @@
 import base from './base.js'
 import lodash from 'lodash'
 import fs from 'node:fs'
-import { gsCfg } from 'yunzai-mys'
+import { GSCfg as gsCfg } from 'yunzai-mys'
 import moment from 'moment'
 import GachaLog from './gachaLog.js'
 
@@ -178,8 +178,8 @@ export default class LogCount extends base {
       this.uid = this?.e?.isSr
         ? this.e.user?._games?.sr?.uid
         : this.e.user?._games?.gs?.uid ||
-          (await this.e.runtime.getUid(this.e)) ||
-          (await redis.get(this.uidKey))
+        (await this.e.runtime.getUid(this.e)) ||
+        (await redis.get(this.uidKey))
     }
 
     /** 记录有绑定的uid */

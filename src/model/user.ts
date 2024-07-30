@@ -1,11 +1,10 @@
 import base from './base.js'
 import lodash from 'lodash'
 import fs from 'node:fs'
-import * as common from 'yunzai'
-import { gsCfg, MysUser, NoteUser } from 'yunzai-mys'
+import { makeForwardMsg } from 'yunzai'
+import { GSCfg as gsCfg, MysUser, NoteUser, UserGameDB, sequelize } from 'yunzai-mys'
 import { promisify } from 'node:util'
 import YAML from 'yaml'
-import { UserGameDB, sequelize } from 'yunzai-mys'
 import { Data, Player } from './miao.js'
 
 export default class User extends base {
@@ -190,7 +189,7 @@ export default class User extends base {
         ]
       )
     }
-    msg = await common.makeForwardMsg(
+    msg = await makeForwardMsg(
       this.e,
       [[msg.join('\n'), segment.button(...button)]],
       '绑定成功：使用命令说明'
@@ -540,7 +539,7 @@ export default class User extends base {
         try {
           let src = `./data/MysCookie/${qq}.yaml`
           let dest = `./temp/MysCookieBak/${qq}.yaml`
-          await fs.promises.unlink(dest).catch(_ => {})
+          await fs.promises.unlink(dest).catch(_ => { })
           await fs.promises.copyFile(src, dest)
           await fs.promises.unlink(src)
         } catch (err) {

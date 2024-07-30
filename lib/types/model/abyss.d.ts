@@ -6,13 +6,13 @@ export default class Abyss extends base {
         toString(): string;
         toLocaleString(): string;
         toLocaleString(locales: string | string[], options?: Intl.NumberFormatOptions & Intl.DateTimeFormatOptions): string;
-        pop(): any | undefined;
+        pop(): any;
         push(...items: any[]): number;
         concat(...items: ConcatArray<any>[]): any[];
         concat(...items: any[]): any[];
         join(separator?: string): string;
         reverse(): any[];
-        shift(): any | undefined;
+        shift(): any;
         slice(start?: number, end?: number): any[];
         sort(compareFn?: (a: any, b: any) => number): any[];
         splice(start: number, deleteCount?: number): any[];
@@ -33,8 +33,8 @@ export default class Abyss extends base {
         reduceRight(callbackfn: (previousValue: any, currentValue: any, currentIndex: number, array: any[]) => any): any;
         reduceRight(callbackfn: (previousValue: any, currentValue: any, currentIndex: number, array: any[]) => any, initialValue: any): any;
         reduceRight<U>(callbackfn: (previousValue: U, currentValue: any, currentIndex: number, array: any[]) => U, initialValue: U): U;
-        find<S extends any>(predicate: (value: any, index: number, obj: any[]) => value is S, thisArg?: any): S | undefined;
-        find(predicate: (value: any, index: number, obj: any[]) => unknown, thisArg?: any): any | undefined;
+        find<S extends any>(predicate: (value: any, index: number, obj: any[]) => value is S, thisArg?: any): S;
+        find(predicate: (value: any, index: number, obj: any[]) => unknown, thisArg?: any): any;
         findIndex(predicate: (value: any, index: number, obj: any[]) => unknown, thisArg?: any): number;
         fill(value: any, start?: number, end?: number): any[];
         copyWithin(target: number, start: number, end?: number): any[];
@@ -42,7 +42,7 @@ export default class Abyss extends base {
         keys(): IterableIterator<number>;
         values(): IterableIterator<any>;
         includes(searchElement: any, fromIndex?: number): boolean;
-        flatMap<U, This = undefined>(callback: (this: This, value: any, index: number, array: any[]) => U | ReadonlyArray<U>, thisArg?: This): U[];
+        flatMap<U, This = undefined>(callback: (this: This, value: any, index: number, array: any[]) => U | readonly U[], thisArg?: This): U[];
         flat<A, D extends number = 1>(this: A, depth?: D): FlatArray<A, D>[];
         [Symbol.iterator](): IterableIterator<any>;
         [Symbol.unscopables]: {
@@ -83,7 +83,8 @@ export default class Abyss extends base {
             readonly [Symbol.unscopables]?: boolean;
             at?: boolean;
         };
-        at(index: number): any | undefined;
+        at(index: number): any;
+        at(index: number): any;
         saveId: any;
         uid: any;
         time: number;
@@ -109,13 +110,13 @@ export default class Abyss extends base {
         toString(): string;
         toLocaleString(): string;
         toLocaleString(locales: string | string[], options?: Intl.NumberFormatOptions & Intl.DateTimeFormatOptions): string;
-        pop(): any | undefined;
+        pop(): any;
         push(...items: any[]): number;
         concat(...items: ConcatArray<any>[]): any[];
         concat(...items: any[]): any[];
         join(separator?: string): string;
         reverse(): any[];
-        shift(): any | undefined;
+        shift(): any;
         slice(start?: number, end?: number): any[];
         sort(compareFn?: (a: any, b: any) => number): any[];
         splice(start: number, deleteCount?: number): any[];
@@ -136,8 +137,8 @@ export default class Abyss extends base {
         reduceRight(callbackfn: (previousValue: any, currentValue: any, currentIndex: number, array: any[]) => any): any;
         reduceRight(callbackfn: (previousValue: any, currentValue: any, currentIndex: number, array: any[]) => any, initialValue: any): any;
         reduceRight<U>(callbackfn: (previousValue: U, currentValue: any, currentIndex: number, array: any[]) => U, initialValue: U): U;
-        find<S extends any>(predicate: (value: any, index: number, obj: any[]) => value is S, thisArg?: any): S | undefined;
-        find(predicate: (value: any, index: number, obj: any[]) => unknown, thisArg?: any): any | undefined;
+        find<S extends any>(predicate: (value: any, index: number, obj: any[]) => value is S, thisArg?: any): S;
+        find(predicate: (value: any, index: number, obj: any[]) => unknown, thisArg?: any): any;
         findIndex(predicate: (value: any, index: number, obj: any[]) => unknown, thisArg?: any): number;
         fill(value: any, start?: number, end?: number): any[];
         copyWithin(target: number, start: number, end?: number): any[];
@@ -145,7 +146,7 @@ export default class Abyss extends base {
         keys(): IterableIterator<number>;
         values(): IterableIterator<any>;
         includes(searchElement: any, fromIndex?: number): boolean;
-        flatMap<U, This = undefined>(callback: (this: This, value: any, index: number, array: any[]) => U | ReadonlyArray<U>, thisArg?: This): U[];
+        flatMap<U, This = undefined>(callback: (this: This, value: any, index: number, array: any[]) => U | readonly U[], thisArg?: This): U[];
         flat<A, D extends number = 1>(this: A, depth?: D): FlatArray<A, D>[];
         [Symbol.iterator](): IterableIterator<any>;
         [Symbol.unscopables]: {
@@ -186,7 +187,8 @@ export default class Abyss extends base {
             readonly [Symbol.unscopables]?: boolean;
             at?: boolean;
         };
-        at(index: number): any | undefined;
+        at(index: number): any;
+        at(index: number): any;
         saveId: any;
         uid: any;
         time: number;

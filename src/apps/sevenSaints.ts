@@ -1,5 +1,4 @@
-import { Plugin } from 'yunzai'
-import { puppeteer } from 'yunzai'
+import { Plugin, puppeteer } from 'yunzai'
 import Deck from '../model/deck.js'
 export class sevenSaints extends Plugin {
   constructor() {

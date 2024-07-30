@@ -1,10 +1,10 @@
 import base from './base.js'
-import { MysInfo, MysApi } from 'yunzai-mys'
+import { MysInfo, MysApi, GSCfg as GsCfg } from 'yunzai-mys'
 import lodash from 'lodash'
 import moment from 'moment'
 import fs from 'node:fs'
-import { sleep } from 'yunzai'
-import { GSCfg as GsCfg } from 'yunzai-mys'
+import { promisify } from 'util'
+const sleep = promisify(setTimeout)
 export default class Ledger extends base {
   constructor(e) {
     super(e)
@@ -384,13 +384,13 @@ export default class Ledger extends base {
       this.e.reply(
         this.e?.isSr
           ? [
-              '暂无星琼数据，请先发送 *星琼',
-              segment.button([{ text: '星琼', input: '*星琼' }])
-            ]
+            '暂无星琼数据，请先发送 *星琼',
+            segment.button([{ text: '星琼', input: '*星琼' }])
+          ]
           : [
-              '暂无原石数据，请先发送 #原石',
-              segment.button([{ text: '原石', input: '#原石' }])
-            ],
+            '暂无原石数据，请先发送 #原石',
+            segment.button([{ text: '原石', input: '#原石' }])
+          ],
         false,
         { at: true }
       )

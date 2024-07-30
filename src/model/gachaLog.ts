@@ -2,10 +2,11 @@ import base from './base.js'
 import fetch from 'node-fetch'
 import lodash from 'lodash'
 import fs from 'node:fs'
-import { downFile, sleep } from 'yunzai'
-import { gsCfg } from 'yunzai-mys'
-
+import { downFile } from 'yunzai'
+import { GSCfg as gsCfg } from 'yunzai-mys'
 import { Character, Weapon } from './miao.js'
+import { promisify } from 'util'
+const sleep = promisify(setTimeout)
 
 export default class GachaLog extends base {
   constructor(e) {
@@ -141,7 +142,7 @@ export default class GachaLog extends base {
     let url = txt.match(/auth_appid=webview_gacha(.*)hk4e_cn/)
 
     /** 删除文件 */
-    fs.unlink(textPath, () => {})
+    fs.unlink(textPath, () => { })
 
     if (!url || !url[0]) {
       return false
@@ -547,8 +548,8 @@ export default class GachaLog extends base {
       this.uid = this?.e?.isSr
         ? this.e.user?._games?.sr?.uid
         : this.e.user?._games?.gs?.uid ||
-          (await this.e.runtime.getUid(this.e)) ||
-          (await redis.get(this.uidKey))
+        (await this.e.runtime.getUid(this.e)) ||
+        (await redis.get(this.uidKey))
     }
 
     /** 记录有绑定的uid */

@@ -1,29 +1,27 @@
-import { Plugin } from 'yunzai'
-import * as common from 'yunzai'
 import fs from 'node:fs'
 import { GSCfg as gsCfg } from 'yunzai-mys'
+import { Plugin, makeForwardMsg } from 'yunzai'
 import YAML from 'yaml'
 import lodash from 'lodash'
 export class abbrSet extends Plugin {
   constructor() {
-    super({
-      name: '别名设置',
-      priority: 600,
-      rule: [
-        {
-          reg: '^#(星铁)?(设置|配置)(.*)(别名|昵称)$',
-          fnc: 'abbr'
-        },
-        {
-          reg: '^#(星铁)?删除(别名|昵称)(.*)$',
-          fnc: 'delAbbr'
-        },
-        {
-          reg: '^#(星铁)?(.*)(别名|昵称)$',
-          fnc: 'abbrList'
-        }
-      ]
-    })
+    super()
+    this.name = '别名设置'
+    this.priority = 600
+    this.rule = [
+      {
+        reg: '^#(星铁)?(设置|配置)(.*)(别名|昵称)$',
+        fnc: 'abbr'
+      },
+      {
+        reg: '^#(星铁)?删除(别名|昵称)(.*)$',
+        fnc: 'delAbbr'
+      },
+      {
+        reg: '^#(星铁)?(.*)(别名|昵称)$',
+        fnc: 'abbrList'
+      }
+    ]
   }
   isSr = false
   file = './plugins/genshin/config/role.name.yaml'
@@ -170,13 +168,11 @@ export class abbrSet extends Plugin {
       let num = Number(i) + 1
       msg.push(`${num}.${list[i]}`)
     }
-
-    msg = await common.makeForwardMsg(
+    const MSG = await makeForwardMsg(
       this.e,
       [msg.join('\n')],
       `${role.name}别名，${list.length}个`
     )
-
-    await this.e.reply(msg)
+    await this.e.reply(MSG)
   }
 }

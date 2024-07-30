@@ -1,5 +1,5 @@
 import base from './base.js'
-import { MysInfo, gsCfg } from 'yunzai-mys'
+import { MysInfo, GSCfg as gsCfg } from 'yunzai-mys'
 import lodash from 'lodash'
 import fs from 'node:fs'
 import fetch from 'node-fetch'

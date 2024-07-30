@@ -56,6 +56,7 @@ export class gcLog extends Plugin {
     })
   }
 
+  prefix
 
   /**
    * button

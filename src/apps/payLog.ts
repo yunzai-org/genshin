@@ -37,7 +37,7 @@ export class payLog extends Plugin {
     // 判断是否存有已经生成的数据
     if (!fs.readdirSync(this.dirPath, 'utf-8').includes(e.user_id + '.yaml')) {
       // 如果没有则判断是否已经缓存了authkey，这个主要针对使用抽卡链接的，和苹果用户
-      await this.updatePayLog()
+      await this.updatePayLog(this.e)
       return true
     }
 
@@ -106,12 +106,12 @@ export class payLog extends Plugin {
 
     // 存储数据
     await this.writeData(imgData)
-    await redis.setEx(
+    await global.redis.setEx(
       `Yz:genshin:mys:qq-uid:${this.e.user_id}`,
       3600 * 24 * 30,
       imgData.uid
     )
-    await redis.setEx(
+    await global.redis.setEx(
       `Yz:genshin:payLog:${imgData.uid}`,
       3600 * 24,
       this.authKey
@@ -122,15 +122,15 @@ export class payLog extends Plugin {
   /** 更新充值统计 */
   async updatePayLog(e) {
     // 读一下uid
-    let uid = await redis.get(`Yz:genshin:mys:qq-uid:${this.e.user_id}`)
+    let uid = await global.redis.get(`Yz:genshin:mys:qq-uid:${this.e.user_id}`)
     if (uid) {
       let mainUid = await this.isMain(this.e.user_id)
       if (mainUid) uid = mainUid
       // 读米游社链接的authkey
       // 读抽卡链接的authkey
       this.authKey =
-        (await redis.get(`Yz:genshin:payLog:${uid}`)) ||
-        (await redis.get(`Yz:genshin:gachaLog:url:${uid}`))
+        (await global.redis.get(`Yz:genshin:payLog:${uid}`)) ||
+        (await global.redis.get(`Yz:genshin:gachaLog:url:${uid}`))
       if (this.authKey) {
         this.reply('正在获取数据,可能需要30s')
         let imgData = await new PayData(this.authKey).filtrateData()

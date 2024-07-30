@@ -478,9 +478,9 @@ export default class User extends base {
     })
 
     // 从Redis中导入
-    let keys = await redis.keys('Yz:genshin:mys:qq-uid:*')
+    let keys = await global.redis.keys('Yz:genshin:mys:qq-uid:*')
     for (let key of keys) {
-      let uid = await redis.get(key)
+      let uid = await global.redis.get(key)
       let qqRet = /Yz:genshin:mys:qq-uid:(\d{5,12})/.exec(key)
       if (qqRet?.[1] && uid) {
         let user = await NoteUser.create(qqRet[1])
@@ -488,7 +488,7 @@ export default class User extends base {
           user.addRegUid(uid, 'gs')
         }
       }
-      redis.del(key)
+      global.redis.del(key)
     }
     await sequelize.query(
       "delete from Users where (ltuids is null or ltuids='') and games is null",
@@ -545,7 +545,7 @@ export default class User extends base {
         try {
           let src = `./data/MysCookie/${qq}.yaml`
           let dest = `./temp/MysCookieBak/${qq}.yaml`
-          await fs.promises.unlink(dest).catch(_ => {})
+          await fs.promises.unlink(dest).catch(_ => { })
           await fs.promises.copyFile(src, dest)
           await fs.promises.unlink(src)
         } catch (err) {
@@ -645,7 +645,7 @@ export default class User extends base {
       // 删除用户
       id = originalUserId || id
       if (/主/.test(msg)) {
-        let mainId = await redis.get(`Yz:NoteUser:mainId:${id}`)
+        let mainId = await global.redis.get(`Yz:NoteUser:mainId:${id}`)
         if (!mainId) {
           e.reply(
             '当前用户没有主用户，在主用户中通过【#绑定用户】可进行绑定...'
@@ -654,19 +654,19 @@ export default class User extends base {
         }
         let subIds = await Data.getCacheJSON(`Yz:NoteUser:subIds:${mainId}`)
         delete subIds[id]
-        await redis.del(`Yz:NoteUser:mainId:${id}`)
+        await global.redis.del(`Yz:NoteUser:mainId:${id}`)
         await Data.setCacheJSON(`Yz:NoteUser:subIds:${mainId}`, subIds)
         e.reply('已经解除与主用户的绑定...')
       } else if (/子/.test(msg)) {
         let subIds = await Data.getCacheJSON(`Yz:NoteUser:subIds:${id}`)
         let count = 0
         for (let key in subIds) {
-          await redis.del(`Yz:NoteUser:mainId:${key}`)
+          await global.redis.del(`Yz:NoteUser:mainId:${key}`)
           count++
         }
         if (count > 0) {
           e.reply(`已删除${count}个子用户...`)
-          await redis.del(`Yz:NoteUser:subIds:${id}`)
+          await global.redis.del(`Yz:NoteUser:subIds:${id}`)
         } else {
           e.reply('当前用户没有子用户，通过【#绑定用户】可绑定子用户...')
         }
@@ -695,7 +695,7 @@ export default class User extends base {
         let verify = Math.floor(
           100000000 + Math.random() * 100000000
         ).toString()
-        await redis.set(
+        await global.redis.set(
           `Yz:NoteUser:verify:${mainId}`,
           verify + '||' + currId,
           { EX: 300 }
@@ -716,16 +716,16 @@ export default class User extends base {
           e.reply('请切换到主用户并发送接受绑定的命令...')
           return true
         }
-        let verify = (await redis.get(`Yz:NoteUser:verify:${mainId}`)) || ''
+        let verify = (await global.redis.get(`Yz:NoteUser:verify:${mainId}`)) || ''
         verify = verify.split('||')
         if (!verify || verify[0] !== idRet[2] || !verify[1]) {
           e.reply('校验失败，请发送【#绑定用户】重新开始绑定流程')
-          await redis.del(`Yz:NoteUser:verify:${mainId}`)
+          await global.redis.del(`Yz:NoteUser:verify:${mainId}`)
           return true
         }
         let subId = verify[1]
-        await redis.del(`Yz:NoteUser:verify:${mainId}`)
-        await redis.set(`Yz:NoteUser:mainId:${subId}`, mainId, {
+        await global.redis.del(`Yz:NoteUser:verify:${mainId}`)
+        await global.redis.set(`Yz:NoteUser:mainId:${subId}`, mainId, {
           EX: 3600 * 24 * 365
         })
         let subIds = await Data.getCacheJSON(`Yz:NoteUser:subIds:${mainId}`)

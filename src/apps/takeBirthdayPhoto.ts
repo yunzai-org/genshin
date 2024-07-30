@@ -95,6 +95,10 @@ export class takeBirthdayPhoto extends Plugin {
     return true
   }
 
+  region
+
+  game_biz
+
   /**
    * 
    * @param ck 
@@ -117,11 +121,10 @@ export class takeBirthdayPhoto extends Plugin {
       lang: 'zh-cn',
       region: this.region
     })
-    let res = await fetch(url, { method: 'POST', body, headers })
+    const res = await fetch(url, { method: 'POST', body, headers }).then(res => res.json())
     const e_hk4e_token = res.headers
       .get('set-cookie')
       .match(/e_hk4e_token=(.*?);/)[1]
-    res = await res.json()
     if (res.retcode != 0) {
       return false
     }

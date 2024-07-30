@@ -7,6 +7,7 @@ export default class GachaData extends base {
     res: any;
     fourHave: any;
     type: any;
+    user: any;
     constructor(e: any);
     static init(e: any): Promise<GachaData>;
     static getImg(name: any, type?: string): any;

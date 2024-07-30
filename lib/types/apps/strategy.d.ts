@@ -9,6 +9,7 @@ export declare class strategy extends Plugin {
     set: any;
     init(): Promise<void>;
     strategy(): Promise<boolean>;
+    sfPath: any;
     strategy_help(): Promise<void>;
     strategy_setting(): Promise<void>;
     getImg(name: any, group: any): Promise<boolean>;

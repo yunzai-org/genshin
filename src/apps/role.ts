@@ -32,18 +32,17 @@ export class role extends Plugin {
         }
       ]
     })
+  }
 
-    Object.defineProperty(this, 'button', {
-      get() {
-        this.prefix = this.e?.isSr ? '*' : '#'
-        return global.segment.button([
-          { text: '角色', callback: `${this.prefix}角色` },
-          { text: '探索', callback: `${this.prefix}探索` },
-          { text: '武器', callback: `${this.prefix}武器` },
-          { text: '深渊', callback: `${this.prefix}深渊` }
-        ])
-      }
-    })
+  prefix
+  get button() {
+    this.prefix = this.e?.isSr ? '*' : '#'
+    return global.segment.button([
+      { text: '角色', callback: `${this.prefix}角色` },
+      { text: '探索', callback: `${this.prefix}探索` },
+      { text: '武器', callback: `${this.prefix}武器` },
+      { text: '深渊', callback: `${this.prefix}深渊` }
+    ])
   }
 
   /** 初始化配置文件 */

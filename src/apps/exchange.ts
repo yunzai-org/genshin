@@ -19,6 +19,12 @@ export class exchange extends Plugin {
     })
   }
 
+  deadline
+  uid
+  now
+  actId
+  code_ver
+
   /**
    * 
    * @returns 
@@ -152,6 +158,7 @@ export class exchange extends Plugin {
       }
     }
   }
+
 
   /**
    * 兑换码使用

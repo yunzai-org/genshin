@@ -6,6 +6,9 @@ import YAML from 'yaml'
 import { GSCfg as GsCfg, MysInfo } from 'yunzai-mys'
 import { promisify } from 'util'
 const sleep = promisify(setTimeout)
+
+const file = './plugins/genshin/config/mys.pubCk.yaml'
+
 export class setPubCk extends Plugin {
   constructor() {
     super({
@@ -26,19 +29,30 @@ export class setPubCk extends Plugin {
     })
   }
 
-  file = './plugins/genshin/config/mys.pubCk.yaml'
 
-  /** 配置公共ck */
+  ck
+
+
+  /**
+   * 配置公共ck
+   */
   async setPubCk() {
-    /** 设置上下文，后续接收到内容会执行doRep方法 */
+    /**
+     * 设置上下文，后续接收到内容会执行doRep方法
+     */
     this.setContext('pubCk')
-    /** 回复 */
+    /**
+     * 回复
+     */
     await this.reply('请发送米游社cookie......\n配置后该ck将会加入公共查询池')
   }
 
+  /**
+   * 
+   * @returns 
+   */
   async pubCk() {
     let msg = this.e.msg
-
     if (
       !(
         /(ltoken|ltoken_v2)/.test(this.e.msg) &&
@@ -48,9 +62,7 @@ export class setPubCk extends Plugin {
       this.e.reply('cookie错误，请发送正确的cookie')
       return true
     }
-
     this.finish('pubCk')
-
     let ck = msg.replace(/#|"|"/g, '')
     let param = {}
     ck.split(';').forEach(v => {
@@ -112,7 +124,9 @@ export class setPubCk extends Plugin {
 
     let ckArr = GsCfg.getConfig('mys', 'pubCk') || []
 
-    /** 判断是否重复 */
+    /**
+     * 判断是否重复
+     */
     for (let ck of ckArr) {
       if (ck.includes(this.ltuid)) {
         await this.e.reply('配置公共cookie错误：该ck已配置')
@@ -127,22 +141,28 @@ export class setPubCk extends Plugin {
     await this.e.reply(`配置公共ck成功：第${ckArr.length}个`)
   }
 
-  /** 检查ck是否可用 */
+
+  /**
+   * 检查ck是否可用
+   * @returns 
+   */
   async checkCk() {
     let url =
       'https://api-takumi.mihoyo.com/binding/api/getUserGameRolesByCookie?game_biz=hk4e_cn'
-    let res = await fetch(url, { method: 'get', headers: { Cookie: this.ck } })
-    if (!res.ok) return false
-    res = await res.json()
+    const res = await fetch(url, { method: 'get', headers: { Cookie: this.ck } }).then(res => res.json()).catch(() => false)
+    if (!res) return false
     if (res.retcode != 0) {
       this.checkMsg = res.message
       return false
     }
-
     return true
   }
 
-  // 获取米游社通行证id
+  /**
+   * 获取米游社通行证id
+   * @param server 
+   * @returns 
+   */
   async getUserInfo(server = 'mys') {
     try {
       const that = this
@@ -169,21 +189,25 @@ export class setPubCk extends Plugin {
     }
   }
 
+  /**
+   * 
+   * @param data 
+   */
   save(data) {
     data = YAML.stringify(data)
-    fs.writeFileSync(this.file, data)
+    fs.writeFileSync(file, data)
   }
 
+  /**
+   * 
+   */
   async setUserCk() {
     let set = './plugins/genshin/config/mys.set.yaml'
-
     let config = fs.readFileSync(set, 'utf8')
     config = config.replace(/allowUseCookie: [0-1]/g, 'allowUseCookie: 1')
     fs.writeFileSync(set, config, 'utf8')
-
     await sleep(500)
     await MysInfo.initCache(true)
-
     await this.reply('开启成功，用户ck已加入公共查询ck池')
   }
 }

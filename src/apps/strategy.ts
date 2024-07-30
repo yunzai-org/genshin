@@ -129,6 +129,8 @@ export class strategy extends Plugin {
     }
   }
 
+  sfPath
+
   /** #攻略帮助 */
   async strategy_help() {
     await this.e.reply(

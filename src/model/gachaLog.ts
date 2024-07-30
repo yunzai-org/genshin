@@ -220,10 +220,10 @@ export default class GachaLog extends base {
 
     if (res?.data?.list && res.data.list.length > 0) {
       this.uid = res.data.list[0].uid
-      await redis.setEx(this.uidKey, 3600 * 24 * 30, String(this.uid))
+      await global.redis.setEx(this.uidKey, 3600 * 24 * 30, String(this.uid))
 
       /** 保存authkey */
-      await redis.setEx(`${this.urlKey}${this.uid}`, 86400, param.authkey)
+      await global.redis.setEx(`${this.urlKey}${this.uid}`, 86400, param.authkey)
 
       return true
     } else {
@@ -280,7 +280,7 @@ export default class GachaLog extends base {
   /** 更新抽卡记录 */
   async updateLog() {
     /** 获取authkey */
-    let authkey = await redis.get(`${this.urlKey}${this.uid}`)
+    let authkey = await global.redis.get(`${this.urlKey}${this.uid}`)
     if (!authkey) return false
 
     /** 调一次接口判断是否有效 */
@@ -555,7 +555,7 @@ export default class GachaLog extends base {
         ? this.e.user?._games?.sr?.uid
         : this.e.user?._games?.gs?.uid ||
         (await this.e.runtime.getUid(this.e)) ||
-        (await redis.get(this.uidKey))
+        (await global.redis.get(this.uidKey))
     }
 
     /** 记录有绑定的uid */

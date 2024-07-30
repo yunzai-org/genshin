@@ -32,8 +32,11 @@ export class abbrSet extends Plugin {
       }
     ]
   }
+
+  /**
+   * 
+   */
   isSr = false
-  file = './plugins/genshin/config/role.name.yaml'
 
   async abbr() {
     if (!(await this.checkAuth())) return
@@ -125,9 +128,13 @@ export class abbrSet extends Plugin {
     await this.reply(`设置别名成功：${ret.join('、')}`)
   }
 
+  /**
+   * 
+   * @param data 
+   */
   save(data) {
     data = YAML.stringify(data)
-    fs.writeFileSync(this.file, data)
+    fs.writeFileSync(file, data)
   }
 
   async delAbbr() {

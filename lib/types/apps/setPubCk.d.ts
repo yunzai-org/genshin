@@ -1,7 +1,7 @@
 import { Plugin } from 'yunzai';
 export declare class setPubCk extends Plugin {
     constructor();
-    file: string;
+    ck: any;
     setPubCk(): Promise<void>;
     pubCk(): Promise<boolean>;
     checkCk(): Promise<boolean>;

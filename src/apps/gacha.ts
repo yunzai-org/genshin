@@ -20,6 +20,8 @@ export class gacha extends Plugin {
     })
   }
 
+  GachaData
+
   /** #十连 */
   async gacha() {
     this.GachaData = await GachaData.init(this.e)
@@ -78,7 +80,7 @@ export class gacha extends Plugin {
 
   /** #定轨 */
   async weaponBing() {
-    let Gacha = await GachaData.init(this.e)
+    const Gacha = await GachaData.init(this.e)
 
     let { NowPool, user, msg = '' } = Gacha
 

@@ -20,6 +20,8 @@ export default class GachaData extends base {
 
   type
 
+  user
+
   /**
    * @param e icqq 消息e
    * @param e.user_id 用户id

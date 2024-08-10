@@ -1,8 +1,9 @@
-import fs from 'node:fs'
 import { GSCfg as gsCfg } from 'yunzai-mys'
+import fs, { mkdirSync } from 'node:fs'
 import { Plugin, makeForwardMsg } from 'yunzai'
 import YAML from 'yaml'
 import lodash from 'lodash'
+import { dirname } from 'node:path'
 
 const file = './plugins/genshin/config/role.name.yaml'
 const str = `神里绫华:
@@ -10,7 +11,11 @@ const str = `神里绫华:
 - 小乌龟`
 
 // files
-if (!fs.existsSync(file)) fs.writeFileSync(file, str)
+
+if (!fs.existsSync(file)) {
+  mkdirSync(dirname(file))
+  fs.writeFileSync(file, str)
+}
 
 export class abbrSet extends Plugin {
   constructor() {

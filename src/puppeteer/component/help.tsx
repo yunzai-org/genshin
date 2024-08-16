@@ -3,13 +3,14 @@ import { BOT_NAME, ConfigController } from 'yunzai'
 import { createRequire } from 'react-puppeteer'
 const require = createRequire(import.meta.url)
 export default function Help({ helpData }) {
-  const version = ConfigController.package.version
   return (
     <>
       <div className="container" id="container">
         <div className="head_box">
           <div className="id_text">{BOT_NAME} Genshin</div>
-          <h2 className="day_text">使用说明 V{version}</h2>
+          <h2 className="day_text">
+            使用说明 V{ConfigController?.package?.version ?? '4'}
+          </h2>
           <img
             className="genshin_logo"
             src={require('../../../public/img/原神.png')}

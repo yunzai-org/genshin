@@ -1,6 +1,5 @@
 import _ from 'lodash'
 import { ConfigController as cfg } from 'yunzai'
-import { Common, Version } from './miao.js'
 import { Character } from './miao.js'
 
 export default class base {
@@ -21,7 +20,8 @@ export default class base {
 
   // 统一封装渲染
   async renderImg(tpl, data, cfg = {}) {
-    return Common.render('genshin', `html/${tpl}`, data, {
+    //
+    return this.e.runtime.render('genshin', `html/${tpl}`, data, {
       ...cfg,
       e: this.e
     })
@@ -48,7 +48,7 @@ export default class base {
     let data = {
       saveId: this.userId,
       cwd: this._path,
-      yzVersion: `v${Version.yunzai}`,
+      yzVersion: `v${cfg?.package?.version ?? 'v'}`,
       yzName: yunzaiName,
       genshinLayout: layoutPath + 'genshin.html',
       defaultLayout: layoutPath + 'default.html'

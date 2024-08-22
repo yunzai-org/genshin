@@ -90,5 +90,5 @@ export default class GachaLog extends base {
         genshinLayout: string;
         defaultLayout: string;
     };
-    getServer(): "prod_gf_cn" | "cn_gf01" | "prod_official_usa" | "os_usa" | "cn_qd01" | "prod_qd_cn" | "prod_official_euro" | "os_euro" | "prod_official_asia" | "os_asia" | "prod_official_cht" | "os_cht";
+    getServer(): "cn_gf01" | "cn_qd01" | "prod_gf_cn" | "prod_qd_cn" | "prod_official_usa" | "os_usa" | "prod_official_euro" | "os_euro" | "prod_official_asia" | "os_asia" | "prod_official_cht" | "os_cht";
 }

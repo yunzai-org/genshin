@@ -1,5 +1,5 @@
 import base from './base.js'
-import { GSCfg as gsCfg } from 'yunzai-mys'
+import { GSCfg as gsCfg, MysInfo } from 'yunzai-mys'
 import lodash from 'lodash'
 import moment from 'moment'
 import fs from 'node:fs'
@@ -135,7 +135,7 @@ export default class RoleIndex extends base {
         stats.common_chest_number +
         stats.magic_chest_number) /
         this.all_chest) *
-        100,
+      100,
       1
     )
 
@@ -511,7 +511,7 @@ export default class RoleIndex extends base {
         stats.common_chest_number +
         stats.magic_chest_number) *
         100) /
-        this.all_chest,
+      this.all_chest,
       2
     )
 
@@ -519,16 +519,16 @@ export default class RoleIndex extends base {
       percentage < 60
         ? 'D'
         : (percentage < 70
-            ? 'C'
-            : percentage < 80
-              ? 'B'
-              : percentage < 90
-                ? 'A'
-                : 'S') + `[${percentage}%]`
+          ? 'C'
+          : percentage < 80
+            ? 'B'
+            : percentage < 90
+              ? 'A'
+              : 'S') + `[${percentage}%]`
 
     let daysDifference =
       Math.floor(
-        (new Date() - new Date('2020-09-15')) / (1000 * 60 * 60 * 24)
+        (Date.now() - (new Date('2020-09-15')).getTime()) / (1000 * 60 * 60 * 24)
       ) + 1
 
     let line = [

@@ -13,7 +13,7 @@ export default function Help({ helpData }) {
           </h2>
           <img
             className="genshin_logo"
-            src={require('../../../public/img/原神.png')}
+            src={require('../../../resources/assets/img/原神.png')}
           />
         </div>
         {helpData.map((val, index) => (
@@ -24,7 +24,9 @@ export default function Help({ helpData }) {
                 <div className="item" key={index}>
                   <img
                     className="item-img"
-                    src={require(`../../../public/img/icon/${item.icon}.png`)}
+                    src={require(
+                      `../../../resources/assets/img/icon/${item.icon}.png`
+                    )}
                   />
                   <div className="title">
                     <div className="text">{item.title}</div>

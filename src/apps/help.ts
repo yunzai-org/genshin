@@ -22,7 +22,7 @@ export class help extends Plugin {
       this.e.reply(Segment.image(cache))
       return
     }
-    const dir = require('../../public/yaml/genshin.yaml')
+    const dir = require('../../resources/assets/yaml/genshin.yaml')
     try {
       const Data = parse(readFileSync(dir, 'utf-8'))
       const Bf = await Screenshot.getHelp({

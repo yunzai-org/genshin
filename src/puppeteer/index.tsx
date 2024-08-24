@@ -22,7 +22,10 @@ export class ScreenshotPicture extends Picture {
       html_name: `help.html`,
       html_head: (
         <>
-          <link rel="stylesheet" href={require('../../public/css/help.css')} />
+          <link
+            rel="stylesheet"
+            href={require('../../resources/assets/css/help.css')}
+          />
         </>
       ),
       html_body: <Help {...Props} />

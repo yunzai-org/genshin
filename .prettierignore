@@ -2,12 +2,12 @@ node_modules
 /config
 /data
 /logs
-/resources
 /renderers
-/plugins
 /index.js
 /types
-/public
 /temp
+/plugins
 /lib
 yarn.lock
+/yunzai-mys/**/*.js
+/yunzai-mys/types

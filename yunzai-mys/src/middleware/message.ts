@@ -1,14 +1,16 @@
 import { middlewareOptions, useEvent } from 'yunzai'
 const srReg = /^#?(\*|星铁|星轨|穹轨|星穹|崩铁|星穹铁道|崩坏星穹铁道|铁道)+/
 const zzzReg = /^#?(%|zzz|绝区零|ZZZ)+/
-type options = { name: string }
-export default (config?: options) => {
+/**
+ * 处理特殊指令
+ */
+export default () => {
   // 返回中间件
   return middlewareOptions({
     // 类型
     typing: 'message',
     // 插件名
-    name: config?.name ?? 'StarRail',
+    name: 'message-commands',
     //
     on: event => {
       useEvent(

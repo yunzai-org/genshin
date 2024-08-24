@@ -135,7 +135,7 @@ export default class RoleIndex extends base {
         stats.common_chest_number +
         stats.magic_chest_number) /
         this.all_chest) *
-      100,
+        100,
       1
     )
 
@@ -511,7 +511,7 @@ export default class RoleIndex extends base {
         stats.common_chest_number +
         stats.magic_chest_number) *
         100) /
-      this.all_chest,
+        this.all_chest,
       2
     )
 
@@ -519,16 +519,16 @@ export default class RoleIndex extends base {
       percentage < 60
         ? 'D'
         : (percentage < 70
-          ? 'C'
-          : percentage < 80
-            ? 'B'
-            : percentage < 90
-              ? 'A'
-              : 'S') + `[${percentage}%]`
+            ? 'C'
+            : percentage < 80
+              ? 'B'
+              : percentage < 90
+                ? 'A'
+                : 'S') + `[${percentage}%]`
 
     let daysDifference =
       Math.floor(
-        (Date.now() - (new Date('2020-09-15')).getTime()) / (1000 * 60 * 60 * 24)
+        (Date.now() - new Date('2020-09-15').getTime()) / (1000 * 60 * 60 * 24)
       ) + 1
 
     let line = [

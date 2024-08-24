@@ -1,6 +1,7 @@
 import typescript from '@rollup/plugin-typescript'
 import { defineConfig as createConfig } from 'yunzai/rollup'
 import { defineConfig } from 'rollup'
+
 const configs = createConfig({
   plugins: [
     typescript({
@@ -10,9 +11,10 @@ const configs = createConfig({
       },
       include: ['src/**/*']
     })
-  ],
+  ]
 })
-export default defineConfig([
+
+const mysConifgs = [
   {
     input: 'yunzai-mys/index.ts',
     file: 'yunzai-mys/index.js',
@@ -22,13 +24,13 @@ export default defineConfig([
     outDir: 'yunzai-mys/types'
   },
   {
-    input: 'yunzai-mys/src/middleware.ts',
-    file: 'yunzai-mys/middleware.js',
-    include: ['yunzai-mys/src/middleware.ts'],
+    input: 'yunzai-mys/src/middleware/message.ts',
+    file: 'yunzai-mys/message.js',
+    include: ['yunzai-mys/src/middleware/message.ts'],
     declaration: false,
     declarationDir: undefined,
     outDir: undefined
-  },
+  }
 ].map(item => {
   return {
     input: item.input,
@@ -49,11 +51,10 @@ export default defineConfig([
       })
     ],
     onwarn: (warning, warn) => {
-      // 忽略与无法解析the导入相关the警告信息
       if (warning.code === 'UNRESOLVED_IMPORT') return
-      // 继续使用默认the警告处理
       warn(warning)
     }
   }
-}).concat(configs))
+})
 
+export default defineConfig(mysConifgs.concat(configs))

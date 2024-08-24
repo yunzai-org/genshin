@@ -1,6 +1,6 @@
 {
   "name": "yunzai-mys",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Yoimiya-Kokomi, Le-niao, ningmengchongshui",
   "description": "QQ Group Bot",
   "main": "./index.js",
@@ -19,7 +19,8 @@
     "yaml": "^2.4.1"
   },
   "files": [
-    "middleware.js",
+    "message.js",
+    "runtime.js",
     "index.js",
     "types"
   ],
@@ -30,8 +31,8 @@
       "types": "./types/index.d.ts"
     },
     "./mw": {
-      "import": "./middleware.js",
-      "types": "./types/src/middleware.d.ts"
+      "import": "./message.js",
+      "types": "./types/src/middleware/message.d.ts"
     }
   },
   "keywords": [

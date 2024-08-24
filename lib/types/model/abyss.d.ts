@@ -85,7 +85,6 @@ export default class Abyss extends base {
             at?: boolean;
         };
         at(index: number): any;
-        at(index: number): any;
         saveId: any;
         uid: any;
         time: string;
@@ -188,7 +187,6 @@ export default class Abyss extends base {
             readonly [Symbol.unscopables]?: boolean;
             at?: boolean;
         };
-        at(index: number): any;
         at(index: number): any;
         saveId: any;
         uid: any;

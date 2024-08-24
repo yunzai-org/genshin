@@ -38,5 +38,5 @@ export default class MysNews extends base {
         seconds: number;
     }>;
     sendNews(botId: any, groupId: any, typeName: any, postId: any, gid: any): Promise<any>;
-    game(gid: any): "" | "原神" | "崩坏三" | "崩坏二" | "未定事件簿" | "崩坏星穹铁道" | "绝区零";
+    game(gid: any): "" | "崩坏三" | "原神" | "崩坏二" | "未定事件簿" | "崩坏星穹铁道" | "绝区零";
 }

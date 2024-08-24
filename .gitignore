@@ -9,3 +9,5 @@ node_modules
 /temp
 /lib
 yarn.lock
+/yunzai-mys/**/*.js
+/yunzai-mys/types

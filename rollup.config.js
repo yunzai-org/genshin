@@ -1,30 +1,52 @@
 import typescript from '@rollup/plugin-typescript'
-// import terser from '@rollup/plugin-terser'
-/**
- * @type {import("rollup").RollupOptions[]}
- */
-export default [
+import { defineConfig as createConfig } from 'yunzai/rollup'
+import { defineConfig } from 'rollup'
+const configs = createConfig({
+  plugins: [
+    typescript({
+      compilerOptions: {
+        declaration: true,
+        declarationDir: 'lib/types'
+      },
+      include: ['src/**/*']
+    })
+  ],
+})
+export default defineConfig([
   {
-    // src 目录
-    input: './src/index.ts',
+    input: 'yunzai-mys/index.ts',
+    file: 'yunzai-mys/index.js',
+    include: ['yunzai-mys/**/*'],
+    declaration: true,
+    declarationDir: 'yunzai-mys/types',
+    outDir: 'yunzai-mys/types'
+  },
+  {
+    input: 'yunzai-mys/src/middleware.ts',
+    file: 'yunzai-mys/middleware.js',
+    include: ['yunzai-mys/src/middleware.ts'],
+    declaration: false,
+    declarationDir: undefined,
+    outDir: undefined
+  },
+].map(item => {
+  return {
+    input: item.input,
     output: {
-      // lib 目录
-      dir: 'lib',
+      file: item.file,
       format: 'es',
-      sourcemap: false,
-      // 保持结构
-      preserveModules: true
+      sourcemap: false
     },
     plugins: [
       typescript({
         compilerOptions: {
-          declaration: true,
-          declarationDir: 'lib/types'
+          declaration: item.declaration,
+          declarationDir: item.declarationDir,
+          outDir: item.outDir
         },
-        include: ['src/**/*']
+        include: item.include,
+        exclude: ['node_modules']
       })
-      // 开启代码压缩
-      // terser()
     ],
     onwarn: (warning, warn) => {
       // 忽略与无法解析the导入相关the警告信息
@@ -33,4 +55,5 @@ export default [
       warn(warning)
     }
   }
-]
+}).concat(configs))
+

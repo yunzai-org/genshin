@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import lodash from 'lodash'
 import fetch from 'node-fetch'
 import YAML from 'yaml'
-import MysInfo from '../model/mys/mysInfo.js'
+import { MysInfo } from 'yunzai-mys'
 import GsCfg from '../model/gsCfg.js'
 import { promisify } from 'util'
 const sleep = promisify(setTimeout)

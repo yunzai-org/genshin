@@ -18,18 +18,6 @@ git clone --depth=1 https://github.com/yunzai-org/genshin.git ./plugins/genshin/
 
 [点击了解所有指令](./README_HELP.md)
 
-### 开发调试
-
-```sh
-cd  yunzai-mys
-yarn link
-cd ..
-yarn link yunzai-mys
-```
-
-```sh
-yarn app
-```
 
 ### 目录
 
@@ -37,8 +25,5 @@ yarn app
 defSet >> 配置文件
 lib    >> 被编译后的源码
 model  >> 被编译后的模块导出
-plugins >> 被启动时的插件目录结构
 resources >> 资源文件
-src    >> 源码工程目录
-yunzai-mys    >> mys模块
 ```

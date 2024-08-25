@@ -10,3 +10,5 @@ node_modules
 yarn.lock
 /yunzai-mys/**/*.js
 /yunzai-mys/types
+
+/build-*

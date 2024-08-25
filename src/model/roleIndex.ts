@@ -2,7 +2,7 @@ import base from './base.js'
 import lodash from 'lodash'
 import moment from 'moment'
 import fs from 'node:fs'
-import MysInfo from './mys/mysInfo.js'
+import { MysInfo } from 'yunzai-mys'
 import gsCfg from './gsCfg.js'
 
 import { Character } from './miao.js'

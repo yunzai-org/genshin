@@ -1,5 +1,5 @@
 import { Plugin } from 'yunzai'
-import MysInfo from '../model/mys/mysInfo.js'
+import { MysInfo } from 'yunzai-mys'
 import User from '../model/user.js'
 export class userAdmin extends Plugin {
   constructor(e) {

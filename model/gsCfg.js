@@ -1,2 +1,2 @@
-import { GSCfg } from '../lib/model/gsCfg.js'
+import { GSCfg } from 'yunzai-mys'
 export default GSCfg

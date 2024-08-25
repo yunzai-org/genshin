@@ -3,7 +3,7 @@ import lodash from 'lodash'
 import fs from 'node:fs'
 import fetch from 'node-fetch'
 import { downFile } from 'yunzai'
-import MysInfo from './mys/mysInfo.js'
+import { MysInfo } from 'yunzai-mys'
 import gsCfg from './gsCfg.js'
 
 export default class RoleDetail extends base {

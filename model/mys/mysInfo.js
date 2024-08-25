@@ -1,2 +1,2 @@
-import mysInfo from '../../lib/model/mys/mysInfo.js'
-export default mysInfo
+import { MysInfo } from 'yunzai-mys'
+export default MysInfo

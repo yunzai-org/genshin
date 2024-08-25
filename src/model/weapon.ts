@@ -1,6 +1,6 @@
 import base from './base.js'
 import { chain } from 'lodash-es'
-import MysInfo from './mys/mysInfo.js'
+import { MysInfo } from 'yunzai-mys'
 import gsCfg from './gsCfg.js'
 import { Character, Weapon } from './miao.js'
 export default class WeaponModel extends base {

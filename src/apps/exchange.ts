@@ -1,6 +1,6 @@
 import { Plugin, makeForwardMsg } from 'yunzai'
 import fetch from 'node-fetch'
-import MysInfo from '../model/mys/mysInfo.js'
+import { MysInfo } from 'yunzai-mys'
 export class exchange extends Plugin {
   constructor() {
     super({

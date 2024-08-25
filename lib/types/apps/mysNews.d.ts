@@ -10,5 +10,5 @@ export declare class mysNews extends Plugin {
     mysUrl(): Promise<void>;
     mysEstimate(): Promise<void>;
     setPush(): Promise<boolean>;
-    gids(): 1 | 6 | 4 | 2 | 3 | 8;
+    gids(): 1 | 8 | 6 | 4 | 2 | 3;
 }

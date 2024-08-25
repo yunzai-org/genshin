@@ -1,7 +1,7 @@
 import { Plugin } from 'yunzai';
 export declare class takeBirthdayPhoto extends Plugin {
     constructor();
-    get button(): import("icqq/lib/message").ButtonElem;
+    get button(): import("icqq/lib/message/elements.js").ButtonElem;
     birthdaystar(e: any): Promise<boolean>;
     region: any;
     game_biz: any;

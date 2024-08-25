@@ -1,7 +1,6 @@
 import base from './base.js';
 export default class Abyss extends base {
     constructor(e: any);
-    e: any;
     getAbyss(): Promise<false | {
         length: number;
         toString(): string;

@@ -1,7 +1,6 @@
 import base from './base.js';
 export default class WeaponModel extends base {
     constructor(e: any);
-    e: any;
     model: string;
     static get(e: any): Promise<boolean | {
         list: any[];

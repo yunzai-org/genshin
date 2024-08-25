@@ -16,6 +16,21 @@ export default class User extends base {
     loadOldData(data: any): Promise<void>;
     myCk(): Promise<void>;
     checkCkStatus(): Promise<boolean>;
-    userAdmin(): Promise<any>;
+    userAdmin(): Promise<{
+        tplFile: string;
+        pluResPath: string;
+        srtempFile: string;
+        headImg: any;
+        game: string;
+        saveId: any;
+        cwd: string;
+        yzVersion: string;
+        yzName: any;
+        genshinLayout: string;
+        defaultLayout: string;
+        _plugin: string;
+        servs: {};
+        count: any;
+    }>;
     bindNoteUser(): Promise<boolean>;
 }

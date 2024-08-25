@@ -11,7 +11,7 @@
   "dependencies": {
     "puppeteer": "^23.1.0",
     "react": "^18.3.1",
-    "react-puppeteer": "^1.0.0"
+    "react-puppeteer": "^1.0.3"
   },
   "devDependencies": {
     "husky": "^9.1.5"

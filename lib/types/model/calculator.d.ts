@@ -5,6 +5,10 @@ export default class Calculator extends base {
     mysApi: any;
     role: any;
     headers: any;
+    dataCharacter: any;
+    setSkill: any;
+    avatar: any;
+    skillList: any;
     get(role: any): Promise<false | {
         tplFile: string;
         pluResPath: string;

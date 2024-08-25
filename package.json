@@ -2,11 +2,10 @@
   "name": "yz-genshin",
   "version": "1.0.0",
   "description": "Yunzai-Next Genshin Plugin",
-  "author": "ningmengchongshui",
+  "author": "",
   "type": "module",
   "private": true,
   "scripts": {
-    "app": "npx tsx src/main.js",
     "build": "rollup  --config rollup.config.js",
     "format": "prettier --write .",
     "check-format": "git diff --exit-code",
@@ -28,12 +27,9 @@
     "tailwindcss": "^3.4.3",
     "ts-node": "^10.9.1",
     "typescript": "^5.5.3",
-    "yunzai": "^1.0.6"
+    "yunzai": "^1.0.6",
+    "yunzai-mys": "^1.0.2"
   },
-  "files": [
-    "resources",
-    "lib"
-  ],
   "types": "lib/types",
   "exports": {
     ".": {

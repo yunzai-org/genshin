@@ -2,7 +2,7 @@
   "name": "yz-genshin",
   "version": "1.0.0",
   "description": "Yunzai-Next Genshin Plugin",
-  "author": "ningmengchongshui",
+  "author": "",
   "type": "module",
   "private": true,
   "scripts": {
@@ -16,10 +16,6 @@
   "devDependencies": {
     "husky": "^9.1.5"
   },
-  "files": [
-    "resources",
-    "lib"
-  ],
   "types": "lib/types",
   "exports": {
     ".": {

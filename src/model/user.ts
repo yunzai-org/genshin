@@ -2,13 +2,9 @@ import base from './base.js'
 import lodash from 'lodash'
 import fs from 'node:fs'
 import { makeForwardMsg } from 'yunzai'
-import {
-  GSCfg as gsCfg,
-  MysUser,
-  NoteUser,
-  UserGameDB,
-  sequelize
-} from 'yunzai-mys'
+import { MysUser, NoteUser, UserGameDB, sequelize } from 'yunzai-mys'
+import MysInfo from './mys/mysInfo.js'
+import gsCfg from './gsCfg.js'
 import { promisify } from 'node:util'
 import YAML from 'yaml'
 import { Data, Player } from './miao.js'

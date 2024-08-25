@@ -1,5 +1,5 @@
 import { Plugin } from 'yunzai'
-import { MysInfo } from 'yunzai-mys'
+import MysInfo from '../model/mys/mysInfo.js'
 import fetch from 'node-fetch'
 export class takeBirthdayPhoto extends Plugin {
   constructor() {

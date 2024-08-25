@@ -1,5 +1,6 @@
 import { Plugin } from 'yunzai'
-import { GSCfg as gsCfg } from 'yunzai-mys'
+
+import gsCfg from '../model/gsCfg.js'
 import User from '../model/user.js'
 export class user extends Plugin {
   constructor(e) {

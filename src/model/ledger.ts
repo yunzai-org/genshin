@@ -1,5 +1,7 @@
 import base from './base.js'
-import { MysInfo, MysApi, GSCfg as GsCfg } from 'yunzai-mys'
+import { MysApi } from 'yunzai-mys'
+import MysInfo from './mys/mysInfo.js'
+import GsCfg from './gsCfg.js'
 import lodash from 'lodash'
 import moment from 'moment'
 import fs from 'node:fs'

@@ -1,7 +1,9 @@
 import base from './base.js'
-import { MysInfo, MysApi } from 'yunzai-mys'
+import { MysApi } from 'yunzai-mys'
 import lodash from 'lodash'
-import { gsCfg } from 'yunzai-mys'
+
+import MysInfo from './mys/mysInfo.js'
+import gsCfg from './gsCfg.js'
 
 export default class Calculator extends base {
   constructor(e) {
@@ -14,6 +16,14 @@ export default class Calculator extends base {
   mysApi
   role
   headers
+
+  dataCharacter
+
+  setSkill
+
+  avatar
+
+  skillList
 
   async get(role) {
     this.role = role

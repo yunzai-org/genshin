@@ -1,5 +1,5 @@
 import { Plugin } from 'yunzai'
-import { GSCfg as gsCfg } from 'yunzai-mys'
+import gsCfg from '../model/gsCfg.js'
 import lodash from 'lodash'
 import fs from 'node:fs'
 import fetch from 'node-fetch'

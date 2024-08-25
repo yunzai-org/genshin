@@ -1,6 +1,6 @@
 import { Plugin } from 'yunzai'
 import fs from 'node:fs'
-import { GSCfg as gsCfg } from 'yunzai-mys'
+import gsCfg from '../model/gsCfg.js'
 import RoleIndex from '../model/roleIndex.js'
 import Abyss from '../model/abyss.js'
 import Weapon from '../model/weapon.js'

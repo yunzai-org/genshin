@@ -28,7 +28,7 @@
     "ts-node": "^10.9.1",
     "typescript": "^5.5.3",
     "yunzai": "^1.0.6",
-    "yunzai-mys": "^1.0.2"
+    "yunzai-mys": "^1.0.4-rc.0"
   },
   "types": "lib/types",
   "exports": {

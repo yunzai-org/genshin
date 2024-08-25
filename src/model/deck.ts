@@ -1,4 +1,4 @@
-import { MysInfo } from 'yunzai-mys'
+import MysInfo from './mys/mysInfo.js'
 import base from './base.js'
 export default class Deck extends base {
   constructor(e) {

@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 import lodash from 'lodash'
 import fs from 'node:fs'
 import { downFile } from 'yunzai'
-import { GSCfg as gsCfg } from 'yunzai-mys'
+import gsCfg from './gsCfg.js'
 import { Character, Weapon } from './miao.js'
 import { promisify } from 'util'
 const sleep = promisify(setTimeout)

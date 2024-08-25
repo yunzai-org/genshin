@@ -1,7 +1,7 @@
 import moment from 'moment'
 import lodash from 'lodash'
 import base from './base.js'
-import { MysInfo } from 'yunzai-mys'
+import MysInfo from './mys/mysInfo.js'
 import { Character } from './miao.js'
 
 export default class Abyss extends base {
@@ -9,8 +9,6 @@ export default class Abyss extends base {
     super(e)
     this.model = 'abyss'
   }
-
-  e
 
   async getAbyss() {
     let scheduleType = 1

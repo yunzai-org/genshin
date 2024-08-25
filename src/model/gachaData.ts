@@ -1,5 +1,5 @@
 import base from './base.js'
-import { GSCfg as gsCfg } from 'yunzai-mys'
+import gsCfg from './gsCfg.js'
 import lodash from 'lodash'
 import moment from 'moment'
 import { Character, Weapon } from './miao.js'

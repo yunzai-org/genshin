@@ -1,5 +1,6 @@
 import base from './base.js'
-import { MysInfo, MysApi } from 'yunzai-mys'
+import { MysApi } from 'yunzai-mys'
+import MysInfo from './mys/mysInfo.js'
 
 export default class blueprint extends base {
   constructor(e) {

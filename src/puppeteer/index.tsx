@@ -1,36 +1,21 @@
 import React from 'react'
-import { createRequire, Picture } from 'react-puppeteer'
+import { createRequire, render } from 'react-puppeteer'
 import { Help } from './component/index'
 const require = createRequire(import.meta.url)
-export class ScreenshotPicture extends Picture {
-  constructor() {
-    // 继承实例
-    super()
-    // 启动
-    this.Pup.start()
-  }
-  /**
-   *
-   * @param uid
-   * @param Props
-   * @returns
-   */
-  getHelp(Props: Parameters<typeof Help>[0]) {
-    // 生成 html 地址 或 html字符串
-    return this.screenshot({
-      join_dir: 'help',
-      html_name: `help.html`,
-      html_head: (
-        <>
-          <link
-            rel="stylesheet"
-            href={require('../../resources/assets/css/help.css')}
-          />
-        </>
-      ),
-      html_body: <Help {...Props} />
-    })
-  }
+export const Options = {
+  html_head: (
+    <link
+      rel="stylesheet"
+      href={require('../../resources/assets/css/help.css')}
+    />
+  )
 }
-// 初始化 图片生成对象
-export const Screenshot = new ScreenshotPicture()
+export const screenshotRender = (Props: Parameters<typeof Help>[0]) => {
+  // 生成 html 地址 或 html字符串
+  return render({
+    join_dir: 'help',
+    html_name: `help.html`,
+    ...Options,
+    html_body: <Help {...Props} />
+  })
+}

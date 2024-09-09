@@ -1,5 +1,5 @@
 import { Plugin, Segment } from 'yunzai'
-import { Screenshot } from '../puppeteer/index'
+import { screenshotRender } from '../puppeteer/index'
 import { parse } from 'yaml'
 import { createRequire } from 'react-puppeteer'
 import { readFileSync } from 'fs'
@@ -25,7 +25,7 @@ export class help extends Plugin {
     const dir = require('../../resources/assets/yaml/genshin.yaml')
     try {
       const Data = parse(readFileSync(dir, 'utf-8'))
-      const Bf = await Screenshot.getHelp({
+      const Bf = await screenshotRender({
         helpData: Data
       })
       if (Bf && typeof Bf !== 'string') {

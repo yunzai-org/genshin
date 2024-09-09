@@ -2,14 +2,14 @@
   "name": "yz-genshin",
   "version": "1.0.0",
   "description": "Yunzai-Next Genshin Plugin",
-  "author": "",
+  "author": "yunzai-org",
   "type": "module",
   "private": true,
   "scripts": {
     "prepare": "husky"
   },
   "dependencies": {
-    "react-puppeteer": "^1.0.4"
+    "react-puppeteer": "^1.0.7-rc.0"
   },
   "devDependencies": {
     "husky": "^9.1.5"
